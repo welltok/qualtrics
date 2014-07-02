@@ -1,3 +1,4 @@
+require "qualtrics/configuration"
 require "qualtrics/version"
 require "qualtrics/recipient"
 require "qualtrics/panel"
