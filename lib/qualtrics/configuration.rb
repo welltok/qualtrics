@@ -9,5 +9,9 @@ module Qualtrics
       self.version ||= DEFAULT_VERSION
       self.endpoint ||= DEFAULT_ENDPOINT
     end
+
+    def update(&block)
+      block.call(self) if block_given?
+    end
   end
 end
