@@ -24,4 +24,10 @@ describe Qualtrics::Panel do
     })
     expect(panel.library_id).to eq(library_id)
   end
+
+  # it 'persists to qualtrics' do
+  #   panel = Qualtrics::Panel.new({
+  #
+  #   })
+  # end
 end

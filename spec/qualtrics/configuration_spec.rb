@@ -42,4 +42,12 @@ describe Qualtrics::Configuration do
     configuration = Qualtrics::Configuration.new
     expect(configuration.endpoint).to eq(Qualtrics::Configuration::DEFAULT_ENDPOINT)
   end
+
+  it 'has a default library id' do
+    library_id = 1
+    configuration = Qualtrics::Configuration.new do |config|
+      config.default_library_id = library_id
+    end
+    expect(configuration.default_library_id).to eql(library_id)
+  end
 end
