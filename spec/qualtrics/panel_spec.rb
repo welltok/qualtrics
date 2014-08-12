@@ -30,14 +30,14 @@ describe Qualtrics::Panel, :vcr => true  do
     expect(panel.library_id).to eq(Qualtrics.configuration.default_library_id)
   end
 
-  context 'persisting to qualtrics' do
-    let(:panel) do   
-      Qualtrics::Panel.new({
-        name: 'Newest Panel',
-        category: 'Great Category'
-      })
-    end
+  let(:panel) do
+    Qualtrics::Panel.new({
+      name: 'Newest Panel',
+      category: 'Great Category'
+    })
+  end
 
+  context 'creating to qualtrics' do
     it 'persists to qualtrics' do
       expect(panel.save).to be true
     end
@@ -51,5 +51,12 @@ describe Qualtrics::Panel, :vcr => true  do
       panel.save
       expect(panel).to be_success
     end
+  end
+
+  it 'raises an error when you attempt to save an already presisted panel' do
+    panel.name = 'An Even Newer Panel'
+    expect(panel.save).to be true
+    panel.name = 'The new newest panel.'
+    expect(lambda{ panel.save }).to raise_error Qualtrics::UpdateNotAllowed
   end
 end

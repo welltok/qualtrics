@@ -5,7 +5,7 @@ http_interactions:
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Name=Newest+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Name=An+Even+Newer+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.0
@@ -25,31 +25,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Fri, 09 Aug 2024 18:30:52 GMT
+      - Fri, 09 Aug 2024 19:50:43 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w10
+      - w20
       Content-Length:
       - '82'
       Content-Type:
       - application/json
       Date:
-      - Tue, 12 Aug 2014 18:30:53 GMT
+      - Tue, 12 Aug 2014 19:50:44 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_8dcaA9CfQZfbVsh"}}'
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_85Ic6PihwZvZMY5"}}'
     http_version: 
-  recorded_at: Tue, 12 Aug 2014 18:30:54 GMT
+  recorded_at: Tue, 12 Aug 2014 19:50:45 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Name=Newest+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Name=The+new+newest+panel.&PanelID=ML_85Ic6PihwZvZMY5&Request=updatePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.0
@@ -61,31 +61,36 @@ http_interactions:
       - '*/*'
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Server:
       - Apache
+      Status:
+      - '404'
+      Requeststatus:
+      - Failure
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Fri, 09 Aug 2024 18:31:15 GMT
+      - Fri, 09 Aug 2024 19:50:44 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w22
+      - w16
       Content-Length:
-      - '82'
+      - '202'
       Content-Type:
       - application/json
       Date:
-      - Tue, 12 Aug 2014 18:31:15 GMT
+      - Tue, 12 Aug 2014 19:50:44 GMT
       Connection:
-      - keep-alive
+      - close
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_8BKIZdmCic6tkLb"}}'
+      string: '{"Meta":{"Status":"Error","RequestType":"updatePanel","ErrorCode":404,"QualtricsErrorCode":"ESRV05","ErrorMessage":"Server
+        Request Type Unknown or Not Defined in Security.xml","Debug":""},"Result":null}'
     http_version: 
-  recorded_at: Tue, 12 Aug 2014 18:31:16 GMT
+  recorded_at: Tue, 12 Aug 2014 19:50:46 GMT
 recorded_with: VCR 2.9.2

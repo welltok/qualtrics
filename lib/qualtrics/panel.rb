@@ -17,12 +17,19 @@ module Qualtrics
     end
 
     def save
-      response = post('createPanel', attributes)
+      response = nil
+      if persisted?
+        raise Qualtrics::UpdateNotAllowed
+      else
+        response = post('createPanel', attributes)
+      end
 
       if response.success?
         self.id = response.result['PanelID']
+        true
+      else
+        false
       end
-      !self.id.nil?
     end
 
     def attributes
@@ -35,6 +42,10 @@ module Qualtrics
 
     def success?
       @last_response && @last_response.success?
+    end
+
+    def persisted?
+      !id.nil?
     end
 
     protected

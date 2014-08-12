@@ -18,5 +18,7 @@ module Qualtrics
     configatron.qualtrics
   end
 
-  class ServerErrorEncountered < StandardError; end
+  class Error < StandardError; end
+  class ServerErrorEncountered < Error; end
+  class UpdateNotAllowed < Error; end
 end
