@@ -2,6 +2,7 @@ require 'configatron'
 
 require "qualtrics/configuration"
 require "qualtrics/version"
+require "qualtrics/response"
 require "qualtrics/recipient"
 require "qualtrics/panel"
 
@@ -17,4 +18,5 @@ module Qualtrics
     configatron.qualtrics
   end
 
+  class ServerErrorEncountered < StandardError; end
 end

@@ -4,7 +4,7 @@ require 'json'
 
 module Qualtrics
   class Panel
-    attr_accessor :id, :name, :category, :library_id, :success
+    attr_accessor :id, :name, :category, :library_id
 
     def initialize(options={})
       @name = options[:name]
@@ -18,12 +18,11 @@ module Qualtrics
 
     def save
       response = post('createPanel', attributes)
-      self.success = response['Meta']['Status'] == 'Success'
 
-      if self.success?
-        self.id = response['Result']['PanelID']
+      if response.success?
+        self.id = response.result['PanelID']
       end
-      self.success?
+      !self.id.nil?
     end
 
     def attributes
@@ -35,7 +34,7 @@ module Qualtrics
     end
 
     def success?
-      self.success
+      @last_response && @last_response.success?
     end
 
     protected
@@ -43,7 +42,7 @@ module Qualtrics
     def post(request, options={})
       body = options.dup.merge(default_params)
       body['Request'] = request
-      resp = JSON.parse(connection.post(path, body).body)
+      @last_response = Qualtrics::Response.new(connection.post(path, body))
     end
 
     def path
