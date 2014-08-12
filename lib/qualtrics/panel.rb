@@ -32,6 +32,14 @@ module Qualtrics
       end
     end
 
+    def destroy
+      response = post('deletePanel', {
+        'LibraryID' => library_id,
+        'PanelID' => self.id
+        })
+      response.success?
+    end
+
     def attributes
       {
         'LibraryID' => library_id,

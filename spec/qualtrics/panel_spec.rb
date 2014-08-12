@@ -59,4 +59,9 @@ describe Qualtrics::Panel, :vcr => true  do
     panel.name = 'The new newest panel.'
     expect(lambda{ panel.save }).to raise_error Qualtrics::UpdateNotAllowed
   end
+
+  it 'destroys a panel that returns true when successful' do
+    panel.save
+    expect(panel.destroy).to be true
+  end
 end
