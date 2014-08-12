@@ -64,4 +64,9 @@ describe Qualtrics::Panel, :vcr => true  do
     panel.save
     expect(panel.destroy).to be true
   end
+
+  it 'retrieves an array of all panels in a library' do
+    panel.save
+    expect(Qualtrics::Panel.all.map{|p| p.id}).to include(panel.id)
+  end
 end

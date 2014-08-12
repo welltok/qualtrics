@@ -21,4 +21,5 @@ module Qualtrics
   class Error < StandardError; end
   class ServerErrorEncountered < Error; end
   class UpdateNotAllowed < Error; end
+  class UnexpectedRequestMethod < Error; end
 end
