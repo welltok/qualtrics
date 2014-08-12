@@ -1,9 +1,10 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'json'
 
 module Qualtrics
   class Panel
-    attr_accessor :name, :category, :library_id
+    attr_accessor :id, :name, :category, :library_id, :success
 
     def initialize(options={})
       @name = options[:name]
@@ -16,7 +17,13 @@ module Qualtrics
     end
 
     def save
-      post('createPanel', attributes)
+      response = post('createPanel', attributes)
+      self.success = response['Meta']['Status'] == 'Success'
+
+      if self.success?
+        self.id = response['Result']['PanelID']
+      end
+      self.success?
     end
 
     def attributes
@@ -27,12 +34,16 @@ module Qualtrics
       }
     end
 
+    def success?
+      self.success
+    end
+
     protected
 
     def post(request, options={})
       body = options.dup.merge(default_params)
       body['Request'] = request
-      resp = connection.post(path, body)
+      resp = JSON.parse(connection.post(path, body).body)
     end
 
     def path

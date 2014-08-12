@@ -30,11 +30,26 @@ describe Qualtrics::Panel, :vcr => true  do
     expect(panel.library_id).to eq(Qualtrics.configuration.default_library_id)
   end
 
-  it 'persists to qualtrics' do
-    panel = Qualtrics::Panel.new({
-      name: 'Newest Panel',
-      category: 'Great Category'
-    })
-    expect(panel.save).to be true
+  context 'persisting to qualtrics' do
+    let(:panel) do   
+      Qualtrics::Panel.new({
+        name: 'Newest Panel',
+        category: 'Great Category'
+      })
+    end
+
+    it 'persists to qualtrics' do
+      expect(panel.save).to be true
+    end
+
+    it 'populates the panel_id when successful' do
+      panel.save
+      expect(panel.id).to_not be_nil
+    end
+
+    it 'populates the success attribute' do
+      panel.save
+      expect(panel).to be_success
+    end
   end
 end
