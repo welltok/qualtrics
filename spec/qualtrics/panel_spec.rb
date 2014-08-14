@@ -38,6 +38,14 @@ describe Qualtrics::Panel, :vcr => true  do
   end
 
   context 'creating to qualtrics' do
+    before(:each) do
+      Qualtrics.begin_transaction!
+    end
+
+    after(:each) do
+      Qualtrics.rollback_transaction!
+    end
+
     it 'persists to qualtrics' do
       expect(panel.save).to be true
     end

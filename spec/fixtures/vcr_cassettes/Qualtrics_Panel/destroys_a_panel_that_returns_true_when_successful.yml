@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -25,31 +25,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Fri, 09 Aug 2024 20:16:05 GMT
+      - Sun, 11 Aug 2024 20:06:22 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w9
+      - w12
       Content-Length:
       - '82'
       Content-Type:
       - application/json
       Date:
-      - Tue, 12 Aug 2014 20:16:06 GMT
+      - Thu, 14 Aug 2014 20:06:22 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_9vOPR2gjxuDnyoB"}}'
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_cTO7oGXHJWb3jEx"}}'
     http_version: 
-  recorded_at: Tue, 12 Aug 2014 20:16:07 GMT
+  recorded_at: Thu, 14 Aug 2014 20:06:22 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_9vOPR2gjxuDnyoB&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_cTO7oGXHJWb3jEx&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.0
@@ -58,7 +58,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -69,7 +69,7 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Fri, 09 Aug 2024 20:16:07 GMT
+      - Sun, 11 Aug 2024 20:06:22 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
@@ -80,12 +80,56 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 12 Aug 2014 20:16:07 GMT
+      - Thu, 14 Aug 2014 20:06:23 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"Success":true}}'
     http_version: 
-  recorded_at: Tue, 12 Aug 2014 20:16:08 GMT
+  recorded_at: Thu, 14 Aug 2014 20:06:22 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_cTO7oGXHJWb3jEx&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sun, 11 Aug 2024 20:06:23 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w668
+      Content-Length:
+      - '66'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 14 Aug 2014 20:06:23 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"Success":true}}'
+    http_version: 
+  recorded_at: Thu, 14 Aug 2014 20:06:23 GMT
 recorded_with: VCR 2.9.2

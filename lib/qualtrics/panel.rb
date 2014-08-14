@@ -51,7 +51,7 @@ module Qualtrics
       if persisted?
         raise Qualtrics::UpdateNotAllowed
       else
-        response = self.post('createPanel', attributes)
+        response = post('createPanel', attributes)
       end
 
       if response.success?
@@ -86,8 +86,6 @@ module Qualtrics
       !id.nil?
     end
 
-    REQUEST_METHOD_WHITELIST = [:get, :post]
-
     def post(request, options = {})
       @last_response = self.class.post(request, options)
     end
@@ -96,44 +94,12 @@ module Qualtrics
       @last_response = self.class.get(request, options)
     end
 
-    def self.post(request, options={})
-      issue_request(:post, request, options)
+    def self.post(request, options = {})
+      Qualtrics::Operation.new(:post, request, options).issue_request
     end
 
-    def self.get(request, options={})
-      issue_request(:get, request, options)
-    end
-
-    protected
-
-    def self.issue_request(request_method, request, options)
-      raise Qualtrics::UnexpectedRequestMethod if !REQUEST_METHOD_WHITELIST.include?(request_method)
-
-      body = options.dup.merge(default_params)
-      body['Request'] = request
-
-      @last_response = Qualtrics::Response.new(connection.send(request_method, path, body))
-    end
-
-    def self.path
-      '/WRAPI/ControlPanel/api.php'
-    end
-
-    def self.connection
-      @connection ||= Faraday.new(:url => 'https://survey.qualtrics.com') do |faraday|
-        faraday.request  :url_encoded
-        faraday.use ::FaradayMiddleware::FollowRedirects, limit: 3
-        faraday.adapter Faraday.default_adapter
-      end
-    end
-
-    def self.default_params
-      {
-        'User' => configuration.user,
-        'Token' => configuration.token,
-        'Version' => configuration.version,
-        'Format' => 'JSON'
-      }
+    def self.get(request, options = {})
+      Qualtrics::Operation.new(:get, request, options).issue_request
     end
 
     def configuration

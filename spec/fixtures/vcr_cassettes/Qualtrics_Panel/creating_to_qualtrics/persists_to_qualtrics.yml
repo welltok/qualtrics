@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -25,23 +25,67 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Fri, 09 Aug 2024 19:50:37 GMT
+      - Sun, 11 Aug 2024 20:06:27 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w3
+      - w15
       Content-Length:
       - '82'
       Content-Type:
       - application/json
       Date:
-      - Tue, 12 Aug 2014 19:50:37 GMT
+      - Thu, 14 Aug 2014 20:06:27 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_bqmqTtGMd3aOmNf"}}'
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_5nK2K02zaz2t7OB"}}'
     http_version: 
-  recorded_at: Tue, 12 Aug 2014 19:50:39 GMT
+  recorded_at: Thu, 14 Aug 2014 20:06:27 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_5nK2K02zaz2t7OB&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sun, 11 Aug 2024 20:06:28 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w19
+      Content-Length:
+      - '66'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 14 Aug 2014 20:06:28 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"Success":true}}'
+    http_version: 
+  recorded_at: Thu, 14 Aug 2014 20:06:28 GMT
 recorded_with: VCR 2.9.2
