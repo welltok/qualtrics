@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Qualtrics::Recipient do
+describe Qualtrics::Recipient, :vcr => true  do
 	it 'has an email' do
     email = 'example@example.com'
 
@@ -56,11 +56,70 @@ describe Qualtrics::Recipient do
   end
 
   it 'has an unsubscribed attribute' do
-    unsubscribed = false
+    unsubscribed = 1
 
     recipient = Qualtrics::Recipient.new({
       unsubscribed: unsubscribed
     })
     expect(recipient.unsubscribed).to eql(unsubscribed)
   end
+
+  it 'has a panel id' do
+    panel_id = 1
+
+    recipient = Qualtrics::Recipient.new({
+      panel_id: panel_id
+    })
+    expect(recipient.panel_id).to eql(panel_id)
+  end
+
+  it 'defaults to the configured library id when none is specified' do
+    recipient = Qualtrics::Recipient.new
+    expect(recipient.library_id).to eq(Qualtrics.configuration.default_library_id)
+  end
+
+  let(:panel) do
+    Qualtrics::Panel.new({
+      name: 'Newest Panel',
+      category: 'Great Category'
+    })
+  end
+
+  let(:recipient) do
+    Qualtrics::Recipient.new({
+      panel_id: panel.id
+    })
+  end
+
+  context 'creating to qualtrics' do
+    before(:each) do
+      Qualtrics.begin_transaction!
+    end
+
+    after(:each) do
+      Qualtrics.rollback_transaction!
+    end
+
+    it 'persists to qualtrics' do
+      panel.save
+      expect(recipient.save).to be true
+    end
+
+    it 'raises an error when a recipient is created without specifying a panel id' do
+      recipient = Qualtrics::Recipient.new
+      expect(lambda{ recipient.save }).to raise_error Qualtrics::MissingPanelID
+    end
+
+    #
+    # it 'populates the panel_id when successful' do
+    #   panel.save
+    #   expect(panel.id).to_not be_nil
+    # end
+    #
+    # it 'populates the success attribute' do
+    #   panel.save
+    #   expect(panel).to be_success
+    # end
+  end
+
 end
