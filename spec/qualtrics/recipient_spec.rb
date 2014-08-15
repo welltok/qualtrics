@@ -73,6 +73,15 @@ describe Qualtrics::Recipient, :vcr => true  do
     expect(recipient.panel_id).to eql(panel_id)
   end
 
+  it 'has a recipient id' do
+    id = 1
+
+    recipient = Qualtrics::Recipient.new({
+      id: id
+    })
+    expect(recipient.id).to eql(id)
+  end
+
   it 'defaults to the configured library id when none is specified' do
     recipient = Qualtrics::Recipient.new
     expect(recipient.library_id).to eq(Qualtrics.configuration.default_library_id)
@@ -105,21 +114,21 @@ describe Qualtrics::Recipient, :vcr => true  do
       expect(recipient.save).to be true
     end
 
+    it 'populates the recipient id when successful' do
+      panel.save
+      recipient.save
+      expect(recipient.id).to_not be_nil
+    end
+
+    it 'populates the success attribute' do
+      panel.save
+      recipient.save
+      expect(recipient).to be_success
+    end
+
     it 'raises an error when a recipient is created without specifying a panel id' do
       recipient = Qualtrics::Recipient.new
       expect(lambda{ recipient.save }).to raise_error Qualtrics::MissingPanelID
     end
-
-    #
-    # it 'populates the panel_id when successful' do
-    #   panel.save
-    #   expect(panel.id).to_not be_nil
-    # end
-    #
-    # it 'populates the success attribute' do
-    #   panel.save
-    #   expect(panel).to be_success
-    # end
   end
-
 end

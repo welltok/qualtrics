@@ -1,6 +1,6 @@
 module Qualtrics
   class Recipient < Entity
-    attr_accessor :email, :first_name, :last_name, :language, :external_data, :embedded_data, :unsubscribed, :panel_id
+    attr_accessor :email, :first_name, :last_name, :language, :external_data, :embedded_data, :unsubscribed, :panel_id, :id
 
     # qualtrics_attribute :library_id, 'LibraryID'
 
@@ -14,6 +14,7 @@ module Qualtrics
       @unsubscribed = options[:unsubscribed]
 
       @panel_id = options[:panel_id]
+      @id = options[:id]
     end
 
     def attributes
@@ -27,7 +28,7 @@ module Qualtrics
           'Language'         => language,
           'ED'               => embedded_data,
           'Unsubscribed'     => unsubscribed
-      }
+      }.delete_if {|key, value| value.nil? }
     end
 
     def save
@@ -35,6 +36,7 @@ module Qualtrics
         response = post('addRecipient', attributes)
 
         if response.success?
+          self.id = response.result['RecipientID']
           true
         else
           false
