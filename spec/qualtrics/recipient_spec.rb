@@ -103,6 +103,7 @@ describe Qualtrics::Recipient, :vcr => true  do
   context 'creating to qualtrics' do
     before(:each) do
       Qualtrics.begin_transaction!
+      panel.save
     end
 
     after(:each) do
@@ -110,18 +111,15 @@ describe Qualtrics::Recipient, :vcr => true  do
     end
 
     it 'persists to qualtrics' do
-      panel.save
       expect(recipient.save).to be true
     end
 
     it 'populates the recipient id when successful' do
-      panel.save
       recipient.save
       expect(recipient.id).to_not be_nil
     end
 
     it 'populates the success attribute' do
-      panel.save
       recipient.save
       expect(recipient).to be_success
     end
@@ -129,6 +127,29 @@ describe Qualtrics::Recipient, :vcr => true  do
     it 'raises an error when a recipient is created without specifying a panel id' do
       recipient = Qualtrics::Recipient.new
       expect(lambda{ recipient.save }).to raise_error Qualtrics::MissingPanelID
+    end
+  end
+
+  context 'get a recipient made in qualtrics' do
+    before(:each) do
+      Qualtrics.begin_transaction!
+    end
+
+    after(:each) do
+      Qualtrics.rollback_transaction!
+    end
+
+    it 'change get its information in qualtrics' do
+      panel.save
+      first_name = 'Kevin'
+
+      recipient = Qualtrics::Recipient.new({
+        panel_id: panel.id,
+        first_name: first_name
+      })
+      recipient.save
+
+      expect(recipient.info_hash['FirstName']).to include(recipient.first_name)
     end
   end
 end

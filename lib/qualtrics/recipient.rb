@@ -46,6 +46,15 @@ module Qualtrics
       end
     end
 
+    def info_hash
+      response = get('getRecipient', {'LibraryID' => library_id, 'RecipientID' => id})
+      if response.success?
+        response.result['Recipient']
+      else
+        false
+      end
+    end
+
     def self.attribute_map
       {
         'LibraryID'        => :library_id,
