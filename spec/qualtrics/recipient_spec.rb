@@ -130,17 +130,17 @@ describe Qualtrics::Recipient, :vcr => true  do
     end
   end
 
-  context 'get a recipient made in qualtrics' do
+  context 'recipient made in qualtrics' do
     before(:each) do
       Qualtrics.begin_transaction!
+      panel.save
     end
 
     after(:each) do
       Qualtrics.rollback_transaction!
     end
 
-    it 'change get its information in qualtrics' do
-      panel.save
+    it 'gets its information in qualtrics' do
       first_name = 'Kevin'
 
       recipient = Qualtrics::Recipient.new({
@@ -151,5 +151,26 @@ describe Qualtrics::Recipient, :vcr => true  do
 
       expect(recipient.info_hash['FirstName']).to include(recipient.first_name)
     end
+
+    it 'can update itself in qualtrics' do
+      first_name = 'Kevin'
+      new_name = 'Ben'
+
+      recipient = Qualtrics::Recipient.new({
+        panel_id: panel.id,
+        first_name: first_name
+      })
+      recipient.save
+
+      attributes = {
+        first_name: new_name
+      }
+      recipient.update(attributes)
+
+      expect(recipient.update(attributes)).to be true
+      expect(recipient.first_name).to eql(new_name)
+      expect(recipient.info_hash['FirstName']).to include(new_name)
+    end
   end
+
 end
