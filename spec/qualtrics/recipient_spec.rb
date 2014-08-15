@@ -171,6 +171,14 @@ describe Qualtrics::Recipient, :vcr => true  do
       expect(recipient.first_name).to eql(new_name)
       expect(recipient.info_hash['FirstName']).to include(new_name)
     end
+
+    it 'can delete itself in qualtrics' do
+      recipient.save
+
+      expect(recipient.info_hash['PanelID']).to include(panel.id)
+      recipient.delete
+      expect(recipient.info_hash).to be false
+    end
   end
 
 end

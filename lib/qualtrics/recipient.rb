@@ -51,7 +51,7 @@ module Qualtrics
 
     def info_hash
       response = get('getRecipient', {'LibraryID' => library_id, 'RecipientID' => id})
-      if response.success?
+      if response.success? && !response.result['Recipient'].nil?
         response.result['Recipient']
       else
         false
@@ -63,13 +63,25 @@ module Qualtrics
       response = post('updateRecipient', update_params)
 
       if response.success?
-        response.result['Recipient']
         true
       else
         false
       end
     end
 
+    def delete
+      response = post('removeRecipient', {
+          'LibraryID' => library_id,
+          'RecipientID' => id,
+          'PanelID' => panel_id
+      })
+
+      if response.success?
+        true
+      else
+        false
+      end
+    end
 
     def self.attribute_map
       {
