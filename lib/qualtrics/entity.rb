@@ -1,5 +1,9 @@
+require 'active_model'
 module Qualtrics
   class Entity
+    include ActiveModel::Model
+    include ActiveModel::Validations
+
     def library_id=(lib_id)
       @library_id = lib_id
     end

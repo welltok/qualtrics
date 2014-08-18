@@ -126,7 +126,8 @@ describe Qualtrics::Recipient, :vcr => true  do
 
     it 'raises an error when a recipient is created without specifying a panel id' do
       recipient = Qualtrics::Recipient.new
-      expect(lambda{ recipient.save }).to raise_error Qualtrics::MissingPanelID
+      expect(recipient.save).to be false
+      expect(recipient.errors[:panel_id]).to_not be_blank
     end
   end
 

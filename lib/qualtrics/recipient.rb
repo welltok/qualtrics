@@ -1,7 +1,7 @@
 module Qualtrics
   class Recipient < Entity
     attr_accessor :email, :first_name, :last_name, :language, :external_data, :embedded_data, :unsubscribed, :panel_id, :id
-
+    validates :panel_id, presence: true
     # qualtrics_attribute :library_id, 'LibraryID'
 
     def initialize(options={})
@@ -34,18 +34,19 @@ module Qualtrics
       }.delete_if {|key, value| value.nil? }
     end
 
-    def save
-      if !@panel_id.nil?
-        response = post('addRecipient', attributes)
+    def panel=(panel)
+      self.panel_id = panel.id
+    end
 
-        if response.success?
-          self.id = response.result['RecipientID']
-          true
-        else
-          false
-        end
+    def save
+      return false if !valid?
+      response = post('addRecipient', attributes)
+
+      if response.success?
+        self.id = response.result['RecipientID']
+        true
       else
-        raise Qualtrics::MissingPanelID
+        false
       end
     end
 

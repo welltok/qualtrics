@@ -42,5 +42,4 @@ module Qualtrics
   class ServerErrorEncountered < Error; end
   class UpdateNotAllowed < Error; end
   class UnexpectedRequestMethod < Error; end
-  class MissingPanelID < Error; end
 end
