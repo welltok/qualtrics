@@ -54,6 +54,7 @@ module Qualtrics
 
     def connection
       @connection ||= Faraday.new(:url => 'https://survey.qualtrics.com') do |faraday|
+        faraday.request :multipart
         faraday.request  :url_encoded
         faraday.use ::FaradayMiddleware::FollowRedirects, limit: 3
         faraday.adapter Faraday.default_adapter

@@ -7,6 +7,7 @@ require "qualtrics/response"
 require "qualtrics/entity"
 require "qualtrics/recipient"
 require "qualtrics/panel"
+require "qualtrics/panel_import"
 
 # not always necessary for runtime
 # consider adding only when necessary
