@@ -80,52 +80,35 @@ describe Qualtrics::Survey, :vcr => true  do
     expect(survey.user_last_name).to eq(user_last_name)
   end
 
-  # context 'creating to qualtrics' do
-  #
-  #   let(:survey) do
-  #     Qualtrics::Survey.new({
-  #       survey_name: 'Complex survey'
-  #     })
-  #   end
-  #
-  #   before(:each) do
-  #     Qualtrics.begin_transaction!
-  #   end
-  #
-  #   after(:each) do
-  #     Qualtrics.rollback_transaction!
-  #   end
-  #
-  #   it 'persists to qualtrics' do
-  #     expect(survey.save).to be true
-  #   end
-  #
-  #   it 'populates the survey_id when successful' do
-  #     survey.save
-  #     expect(survey.survey_id).to_not be_nil
-  #   end
-  #
-  #   it 'populates the success attribute' do
-  #     survey.save
-  #     expect(survey).to be_success
-  #   end
-  #
-  #   it 'raises an error when you attempt to save an already presisted survey' do
-  #     survey.name = 'An Even Newer Survey'
-  #     expect(survey.save).to be true
-  #     survey.name = 'The new newest survey.'
-  #     expect(lambda{ survey.save }).to raise_error Qualtrics::UpdateNotAllowed
-  #   end
-  #
-  #   it 'destroys a survey that returns true when successful' do
-  #     survey.save
-  #     expect(survey.destroy).to be true
-  #   end
+  context 'creating to qualtrics' do
 
-    # it 'retrieves an array of all surveys' do
-    #   survey.save
-    #   expect(Qualtrics::Survey.all.map{|p| p.id}).to include(survey.survey_id)
-    # end
-  # end
+    let(:survey_import) do
+      survey_import = Qualtrics::SurveyImport.new({
+        survey_name: 'Complex survey',
+        survey_data_location: 'spec/fixtures/sample_survey.xml'
+      })
+    end
+
+    let(:survey) { survey_import.survey }
+
+    it 'destroys a survey that returns true when successful' do
+      survey_import.save
+
+      expect(survey.destroy).to be true
+    end
+
+    it 'populates the survey_id when successful' do
+      survey_import.save
+
+      expect(survey.survey_id).to_not be_nil
+      survey.destroy
+    end
+
+    it 'retrieves an array of all surveys' do
+      survey_import.save
+
+      expect(Qualtrics::Survey.all.map{|p| p.survey_id}).to include(survey.survey_id)
+    end
+  end
 
 end

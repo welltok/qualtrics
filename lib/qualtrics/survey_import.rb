@@ -4,8 +4,8 @@ module Qualtrics
 
     def initialize(options={})
       @survey_name = options[:survey_name]
-      @survey = Qualtrics::Survey.new(survey_name: survey_name)
       @survey_data_location = options[:survey_data_location]
+      @survey = Qualtrics::Survey.new(survey_name: survey_name)
     end
 
     def save

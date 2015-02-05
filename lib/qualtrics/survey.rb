@@ -9,18 +9,34 @@ module Qualtrics
                   :survey_expiration_date, :survey_creation_date,
                   :creator_id, :last_modified, :last_activated,
                   :user_first_name, :user_last_name
-    #
-    # def self.all(library_id = nil)
-    #   lib_id = library_id || configuration.default_library_id
-    #   response = get('getPanels', {'LibraryID' => lib_id})
-    #   if response.success?
-    #     response.result['Panels'].map do |panel|
-    #       new(underscore_attributes(panel))
-    #     end
-    #   else
-    #     []
-    #   end
-    # end
+
+    def initialize(options={})
+      @responses = options[:responses]
+      @survey_id = options[:survey_id]
+      @survey_name = options[:survey_name]
+      @survey_owner_id = options[:survey_owner_id]
+      @survey_status = options[:survey_status]
+      @survey_start_date = options[:survey_start_date]
+      @survey_expiration_date = options[:survey_expiration_date]
+      @survey_creation_date = options[:survey_creation_date]
+      @creator_id = options[:creator_id]
+      @last_modified = options[:last_modified]
+      @last_activated = options[:last_activated]
+      @user_first_name = options[:user_first_name]
+      @user_last_name = options[:user_last_name]
+    end
+
+    def self.all(library_id = nil)
+      lib_id = library_id || configuration.default_library_id
+      response = get('getSurveys', {'LibraryID' => lib_id})
+      if response.success?
+        response.result['Surveys'].map do |panel|
+          new(underscore_attributes(panel))
+        end
+      else
+        []
+      end
+    end
 
     def self.attribute_map
       {
@@ -39,23 +55,14 @@ module Qualtrics
         'UserLastName' => :user_last_name
       }
     end
-    #
-    # def initialize(options={})
-    #   @name = options[:name]
-    #   @id = options[:id]
-    #   @category = options[:category]
-    #   @library_id = options[:library_id]
-    # end
-    #
-    #
-    # def destroy
-    #   response = post('deletePanel', {
-    #     'LibraryID' => library_id,
-    #     'PanelID' => self.id
-    #   })
-    #   response.success?
-    # end
-    #
+
+    def destroy
+      response = post('deleteSurvey', {
+        'SurveyID' => survey_id
+      })
+      response.success?
+    end
+
     # def attributes
     #   {
     #     'LibraryID' => library_id,
