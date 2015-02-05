@@ -63,12 +63,18 @@ module Qualtrics
       response.success?
     end
 
-    # def attributes
-    #   {
-    #     'LibraryID' => library_id,
-    #     'Category' => category,
-    #     'Name' => name
-    #   }
-    # end
+    def activate
+      response = post('activateSurvey', {
+        'SurveyID' => survey_id
+      })
+      response.success?
+    end
+
+    def deactivate
+      response = post('deactivateSurvey', {
+        'SurveyID' => survey_id
+      })
+      response.success?
+    end
   end
 end

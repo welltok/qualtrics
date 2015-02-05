@@ -108,6 +108,15 @@ describe Qualtrics::Survey, :vcr => true  do
       survey_import.save
 
       expect(Qualtrics::Survey.all.map{|p| p.survey_id}).to include(survey.survey_id)
+      survey.destroy
+    end
+
+    it 'can be activated or deactivated' do
+      survey_import.save
+
+      expect(survey.activate).to be true
+      expect(survey.deactivate).to be true
+      survey.destroy
     end
   end
 

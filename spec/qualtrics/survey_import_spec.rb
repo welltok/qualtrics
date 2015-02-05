@@ -39,5 +39,6 @@ describe Qualtrics::SurveyImport, :vcr => true  do
     })
 
     expect(survey_import.save).to be true
+    survey_import.survey.destroy
   end
 end
