@@ -8,6 +8,8 @@ require "qualtrics/entity"
 require "qualtrics/recipient"
 require "qualtrics/panel"
 require "qualtrics/panel_import"
+require "qualtrics/survey"
+require "qualtrics/survey_import"
 
 # not always necessary for runtime
 # consider adding only when necessary
