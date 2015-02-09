@@ -80,6 +80,8 @@ describe Qualtrics::Survey, :vcr => true  do
     expect(survey.user_last_name).to eq(user_last_name)
   end
 
+  ##TODO get qualtrics transaction to rollback survey creation
+
   context 'creating to qualtrics' do
 
     let(:survey_import) do

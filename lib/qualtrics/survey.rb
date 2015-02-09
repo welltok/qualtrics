@@ -30,8 +30,8 @@ module Qualtrics
       lib_id = library_id || configuration.default_library_id
       response = get('getSurveys', {'LibraryID' => lib_id})
       if response.success?
-        response.result['Surveys'].map do |panel|
-          new(underscore_attributes(panel))
+        response.result['Surveys'].map do |survey|
+          new(underscore_attributes(survey))
         end
       else
         []

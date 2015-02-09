@@ -11,6 +11,8 @@ require "qualtrics/panel_import"
 require "qualtrics/survey"
 require "qualtrics/survey_import"
 
+require "qualtrics/message"
+
 # not always necessary for runtime
 # consider adding only when necessary
 require "qualtrics/transaction"

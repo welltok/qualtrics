@@ -1,0 +1,113 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Category=InviteEmails&Format=JSON&Language=EN&LibraryID=<QUALTRICS_LIBRARY_ID&Message=Welcome&Name=Newest+Message&Request=createLibraryMessage&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Thu, 06 Feb 2025 21:07:17 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w189
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '21'
+      - '8'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '306'
+      - '721'
+      Content-Length:
+      - '174'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 09 Feb 2015 21:07:17 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"LibraryID":"<QUALTRICS_LIBRARY_ID","MessageID":"MS_a41begtO1N90zkN","Description":"Newest
+        Message","Category":"InviteEmails"}}'
+    http_version: 
+  recorded_at: Mon, 09 Feb 2015 21:07:17 GMT
+- request:
+    method: get
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Request=getLibraryMessages&Token=<QUALTRICS_TOKEN>&User=<QUALTRICS_USER>&Version=2.3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Thu, 06 Feb 2025 21:07:17 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w2
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '21'
+      - '6'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '247'
+      - '635'
+      Content-Length:
+      - '727'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 09 Feb 2015 21:07:18 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"INVITE":{"MS_3mbqIRZuGe2W5tr":"Brookeside
+        - Buyer Loyalty Survey","MS_6DwbFPV7uHKNZ1r":"Brookeside - Buyer Loyalty Survey
+        (Dev)","MS_426OEcVob0uEnXv":"Buyer Loyalty Survey","MS_02EAmV1vUAviA97":"Buyer
+        Loyalty Survey (Dev)","MS_5uS7iegzuk6EcHb":"Newest Message","MS_a41begtO1N90zkN":"Newest
+        Message","MS_7P6F548SIAIpoKF":"Seller Loyalty Survey","MS_b416LnXLoGrZWhD":"Seller
+        Loyalty Survey (Dev)"},"REMINDER":{"MS_agwmdoYmxKUxFat":"Buyer Reminder"},"THANKYOU":{"MS_3kPVyu0hVIya38V":"Brookeside
+        Thank You","MS_9p2qtcB8q4e26SF":"SalesEquity.com Thank You","MS_0fiOydxs5Tvxgvb":"SalesEquity.com
+        Thank You (Dev)"},"ENDOFSURVEY":[],"INACTIVESURVEY":[],"GENERAL":[],"LOOKANDFEEL":[]}}'
+    http_version: 
+  recorded_at: Mon, 09 Feb 2015 21:07:18 GMT
+recorded_with: VCR 2.9.2

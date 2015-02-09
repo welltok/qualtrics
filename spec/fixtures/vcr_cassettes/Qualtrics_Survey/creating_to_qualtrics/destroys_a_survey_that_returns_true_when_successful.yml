@@ -35,7 +35,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -46,39 +46,39 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sun, 02 Feb 2025 21:25:32 GMT
+      - Thu, 06 Feb 2025 21:41:01 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w19
+      - w163
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '11'
-      - '65'
+      - '2'
+      - '6'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '1023'
-      - '556'
+      - '1089'
+      - '610'
       Content-Length:
       - '83'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Feb 2015 21:25:33 GMT
+      - Mon, 09 Feb 2015 21:41:01 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"SurveyID":"SV_6G7zA8Z8txfg0Qt"}}'
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"SurveyID\":\"SV_bHqmsDgrqVWUS2N\"}}"
     http_version: 
-  recorded_at: Thu, 05 Feb 2015 21:25:33 GMT
+  recorded_at: Mon, 09 Feb 2015 21:41:01 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_6G7zA8Z8txfg0Qt&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_bHqmsDgrqVWUS2N&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.0
@@ -87,7 +87,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -98,31 +98,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sun, 02 Feb 2025 21:25:33 GMT
+      - Thu, 06 Feb 2025 21:41:02 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w202
+      - w631
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '18'
-      - '58'
+      - '10'
+      - '2'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '1470'
-      - '564'
+      - '590'
+      - '982'
       Content-Length:
       - '54'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Feb 2015 21:25:34 GMT
+      - Mon, 09 Feb 2015 21:41:03 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":null}'
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":null}"
     http_version: 
-  recorded_at: Thu, 05 Feb 2015 21:25:34 GMT
+  recorded_at: Mon, 09 Feb 2015 21:41:03 GMT
 recorded_with: VCR 2.9.2
