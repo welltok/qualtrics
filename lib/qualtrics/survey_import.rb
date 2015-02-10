@@ -16,7 +16,7 @@ module Qualtrics
       response = post 'importSurvey', payload
 
       if response.success?
-        survey.survey_id = response.result['SurveyID']
+        survey.id = response.result['SurveyID']
         true
       else
         false

@@ -4,7 +4,7 @@ require 'json'
 
 module Qualtrics
   class Survey < Entity
-    attr_accessor :responses, :survey_id, :survey_name,
+    attr_accessor :responses, :id, :survey_name,
                   :survey_owner_id, :survey_status, :survey_start_date,
                   :survey_expiration_date, :survey_creation_date,
                   :creator_id, :last_modified, :last_activated,
@@ -12,7 +12,7 @@ module Qualtrics
 
     def initialize(options={})
       @responses = options[:responses]
-      @survey_id = options[:survey_id]
+      @id = options[:id]
       @survey_name = options[:survey_name]
       @survey_owner_id = options[:survey_owner_id]
       @survey_status = options[:survey_status]
@@ -41,7 +41,7 @@ module Qualtrics
     def self.attribute_map
       {
         'responses' => :responses,
-        'SurveyID' => :survey_id,
+        'SurveyID' => :id,
         'SurveyName' => :survey_name,
         'SurveyOwnerID' => :survey_owner_id,
         'SurveyStatus' => :survey_status,
@@ -58,21 +58,21 @@ module Qualtrics
 
     def destroy
       response = post('deleteSurvey', {
-        'SurveyID' => survey_id
+        'SurveyID' => id
       })
       response.success?
     end
 
     def activate
       response = post('activateSurvey', {
-        'SurveyID' => survey_id
+        'SurveyID' => id
       })
       response.success?
     end
 
     def deactivate
       response = post('deactivateSurvey', {
-        'SurveyID' => survey_id
+        'SurveyID' => id
       })
       response.success?
     end

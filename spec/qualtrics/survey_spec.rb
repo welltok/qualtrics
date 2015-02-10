@@ -5,9 +5,9 @@ describe Qualtrics::Survey, :vcr => true  do
   it 'has a survey id' do
     survey_id = 'SV_id'
     survey = Qualtrics::Survey.new({
-      survey_id: survey_id
+      id: survey_id
     })
-    expect(survey.survey_id).to eq(survey_id)
+    expect(survey.id).to eq(survey_id)
   end
 
   it 'has a survey name' do
@@ -102,14 +102,14 @@ describe Qualtrics::Survey, :vcr => true  do
     it 'populates the survey_id when successful' do
       survey_import.save
 
-      expect(survey.survey_id).to_not be_nil
+      expect(survey.id).to_not be_nil
       survey.destroy
     end
 
     it 'retrieves an array of all surveys' do
       survey_import.save
 
-      expect(Qualtrics::Survey.all.map{|p| p.survey_id}).to include(survey.survey_id)
+      expect(Qualtrics::Survey.all.map{|p| p.id}).to include(survey.id)
       survey.destroy
     end
 
