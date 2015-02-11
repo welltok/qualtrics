@@ -7,5 +7,5 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
   c.filter_sensitive_data('<QUALTRICS_USER>') { ENV['QUALTRICS_USER'] }
   c.filter_sensitive_data('<QUALTRICS_TOKEN>') { ENV['QUALTRICS_TOKEN'] }
-  c.filter_sensitive_data('<QUALTRICS_LIBRARY_ID') { ENV['QUALTRICS_LIBRARY_ID'] }
+  c.filter_sensitive_data('<QUALTRICS_LIBRARY_ID>') { ENV['QUALTRICS_LIBRARY_ID'] }
 end

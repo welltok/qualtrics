@@ -9,7 +9,7 @@ http_interactions:
         form-data; name=\"Data\"; filename=\"sample_survey.xml\"\r\nContent-Length:
         1296\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\n\r\n<?xml
         version=\"1.0\" encoding=\"UTF-8\"?>\n<SurveyDefinition><SurveyName>Sample
-        survey</SurveyName><OwnerID><QUALTRICS_LIBRARY_ID</OwnerID><isActive>0</isActive><CreationDate>2015-02-05
+        survey</SurveyName><OwnerID><QUALTRICS_LIBRARY_ID></OwnerID><isActive>0</isActive><CreationDate>2015-02-05
         13:57:01</CreationDate><LastModifiedDate>2015-02-05 13:57:41</LastModifiedDate><StartDate>0000-00-00
         00:00:00</StartDate><ExpirationDate>0000-00-00 00:00:00</ExpirationDate><Languages><Language
         Default=\"1\">EN</Language></Languages><Questions><Question QuestionID=\"QID1\"><Type>MC</Type><Selector>SAVR</Selector><SubSelector>TX</SubSelector><QuestionText><![CDATA[Only
@@ -27,7 +27,7 @@ http_interactions:
         form-data; name=\"Request\"\r\n\r\nimportSurvey\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -35,7 +35,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -46,48 +46,48 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sun, 02 Feb 2025 21:25:29 GMT
+      - Sat, 08 Feb 2025 19:16:16 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w202
+      - w016
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '10'
-      - '50'
+      - '12'
+      - '13'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '2375'
-      - '546'
+      - '1119'
+      - '559'
       Content-Length:
       - '83'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Feb 2015 21:25:29 GMT
+      - Wed, 11 Feb 2015 19:16:16 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"SurveyID":"SV_cGCGReWTAipo5O5"}}'
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"SurveyID\":\"SV_6G1YVplaU7AWyln\"}}"
     http_version: 
-  recorded_at: Thu, 05 Feb 2015 21:25:29 GMT
+  recorded_at: Wed, 11 Feb 2015 19:16:19 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_cGCGReWTAipo5O5&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_6G1YVplaU7AWyln&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
@@ -98,31 +98,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sun, 02 Feb 2025 21:25:30 GMT
+      - Sat, 08 Feb 2025 19:16:17 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w8
+      - w11
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '20'
-      - '65'
+      - '11'
+      - '15'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '1625'
-      - '679'
+      - '547'
+      - '977'
       Content-Length:
       - '54'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Feb 2015 21:25:31 GMT
+      - Wed, 11 Feb 2015 19:16:17 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Meta":{"Status":"Success","Debug":""},"Result":null}'
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":null}"
     http_version: 
-  recorded_at: Thu, 05 Feb 2015 21:25:31 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Wed, 11 Feb 2015 19:16:20 GMT
+recorded_with: VCR 2.9.3

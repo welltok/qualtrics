@@ -5,7 +5,7 @@ http_interactions:
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Name=Newest+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&Name=Newest+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.1
@@ -25,39 +25,39 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 15:44:16 GMT
+      - Sat, 08 Feb 2025 19:15:15 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w202
+      - w541
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '17'
+      - '16'
       - '9'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '194'
-      - '623'
+      - '276'
+      - '705'
       Content-Length:
       - '82'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 15:44:17 GMT
+      - Wed, 11 Feb 2015 19:15:15 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"PanelID\":\"ML_4HmpA0UWxZrpUAB\"}}"
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"PanelID\":\"ML_6hshq8P9FR0BJn7\"}}"
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:20 GMT
+  recorded_at: Wed, 11 Feb 2015 19:15:18 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Email=working%40hard.com&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_4HmpA0UWxZrpUAB&Request=addRecipient&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Email=working%40hard.com&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_6hshq8P9FR0BJn7&Request=addRecipient&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.1
@@ -77,33 +77,33 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 15:44:17 GMT
+      - Sat, 08 Feb 2025 19:15:15 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w423
+      - w295
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '10'
+      - '13'
       - '9'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '301'
-      - '689'
+      - '320'
+      - '704'
       Content-Length:
       - '88'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 15:44:17 GMT
+      - Wed, 11 Feb 2015 19:15:16 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"RecipientID\":\"MLRP_294iHXzn5J3lBVX\"}}"
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"RecipientID\":\"MLRP_d0Z4W6GiigAonJ3\"}}"
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:20 GMT
+  recorded_at: Wed, 11 Feb 2015 19:15:19 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
@@ -113,7 +113,7 @@ http_interactions:
         survey\r\n-------------RubyMultipartPost\r\nContent-Disposition: form-data;
         name=\"Data\"; filename=\"sample_survey.xml\"\r\nContent-Length: 1296\r\nContent-Type:
         text/xml\r\nContent-Transfer-Encoding: binary\r\n\r\n<?xml version=\"1.0\"
-        encoding=\"UTF-8\"?>\n<SurveyDefinition><SurveyName>Sample survey</SurveyName><OwnerID><QUALTRICS_LIBRARY_ID</OwnerID><isActive>0</isActive><CreationDate>2015-02-05
+        encoding=\"UTF-8\"?>\n<SurveyDefinition><SurveyName>Sample survey</SurveyName><OwnerID><QUALTRICS_LIBRARY_ID></OwnerID><isActive>0</isActive><CreationDate>2015-02-05
         13:57:01</CreationDate><LastModifiedDate>2015-02-05 13:57:41</LastModifiedDate><StartDate>0000-00-00
         00:00:00</StartDate><ExpirationDate>0000-00-00 00:00:00</ExpirationDate><Languages><Language
         Default=\"1\">EN</Language></Languages><Questions><Question QuestionID=\"QID1\"><Type>MC</Type><Selector>SAVR</Selector><SubSelector>TX</SubSelector><QuestionText><![CDATA[Only
@@ -150,39 +150,39 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 15:44:18 GMT
+      - Sat, 08 Feb 2025 19:15:16 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w625
+      - w423
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '16'
-      - '9'
+      - '10'
+      - '14'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '1110'
-      - '616'
+      - '543'
+      - '985'
       Content-Length:
       - '83'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 15:44:19 GMT
+      - Wed, 11 Feb 2015 19:15:17 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"SurveyID\":\"SV_9SjghvQ0LUiMgYt\"}}"
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"SurveyID\":\"SV_6rlsvOLzHEnr1CR\"}}"
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:22 GMT
+  recorded_at: Wed, 11 Feb 2015 19:15:20 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Category=InviteEmails&Format=JSON&Language=EN&LibraryID=<QUALTRICS_LIBRARY_ID&Message=Welcome&Name=Newest+Message&Request=createLibraryMessage&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Category=InviteEmails&Format=JSON&Language=EN&LibraryID=<QUALTRICS_LIBRARY_ID>&Message=Welcome&Name=Newest+Message&Request=createLibraryMessage&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.1
@@ -202,164 +202,7 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 15:44:19 GMT
-      P3p:
-      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
-        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
-      Servershortname:
-      - w202
-      X-Cnection:
-      - close
-      X-Edgeconnect-Midmile-Rtt:
-      - '10'
-      - '17'
-      X-Edgeconnect-Origin-Mex-Latency:
-      - '194'
-      - '619'
-      Content-Length:
-      - '174'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 11 Feb 2015 15:44:19 GMT
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"LibraryID\":\"<QUALTRICS_LIBRARY_ID\",\"MessageID\":\"MS_aY8ADvLmgnbizad\",\"Description\":\"Newest
-        Message\",\"Category\":\"InviteEmails\"}}"
-    http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:22 GMT
-- request:
-    method: post
-    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
-    body:
-      encoding: UTF-8
-      string: Format=JSON&FromEmail=example%40example.com&FromName=yes_qualtrics&MessageID=MS_aY8ADvLmgnbizad&MessageLibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_4HmpA0UWxZrpUAB&PanelLibraryID=<QUALTRICS_LIBRARY_ID&RecipientID=MLRP_294iHXzn5J3lBVX&Request=sendSurveyToIndividual&SendDate=2015-02-11+08%3A44%3A22&Subject=game+convention&SurveyID=SV_9SjghvQ0LUiMgYt&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache
-      Cache-Control:
-      - max-age=315360000
-      Expires:
-      - Sat, 08 Feb 2025 15:44:20 GMT
-      P3p:
-      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
-        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
-      Servershortname:
-      - w202
-      X-Cnection:
-      - close
-      X-Edgeconnect-Midmile-Rtt:
-      - '10'
-      - '17'
-      X-Edgeconnect-Origin-Mex-Latency:
-      - '551'
-      - '977'
-      Content-Length:
-      - '154'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 11 Feb 2015 15:44:20 GMT
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":true,\"EmailDistributionID\":\"EMD_5zQADh5SpLQq9lX\",\"DistributionQueueID\":\"EMD_5zQADh5SpLQq9lX\"}}"
-    http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:23 GMT
-- request:
-    method: post
-    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
-    body:
-      encoding: UTF-8
-      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_4HmpA0UWxZrpUAB&RecipientID=MLRP_294iHXzn5J3lBVX&Request=removeRecipient&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache
-      Cache-Control:
-      - max-age=315360000
-      Expires:
-      - Sat, 08 Feb 2025 15:44:21 GMT
-      P3p:
-      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
-        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
-      Servershortname:
-      - w295
-      X-Cnection:
-      - close
-      X-Edgeconnect-Midmile-Rtt:
-      - '10'
-      - '18'
-      X-Edgeconnect-Origin-Mex-Latency:
-      - '244'
-      - '725'
-      Content-Length:
-      - '63'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 11 Feb 2015 15:44:21 GMT
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":1}}"
-    http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:24 GMT
-- request:
-    method: post
-    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
-    body:
-      encoding: UTF-8
-      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&PanelID=ML_4HmpA0UWxZrpUAB&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache
-      Cache-Control:
-      - max-age=315360000
-      Expires:
-      - Sat, 08 Feb 2025 15:44:22 GMT
+      - Sat, 08 Feb 2025 19:15:17 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
@@ -368,30 +211,31 @@ http_interactions:
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '14'
-      - '16'
+      - '10'
+      - '12'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '201'
-      - '593'
+      - '211'
+      - '585'
       Content-Length:
-      - '66'
+      - '174'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 15:44:22 GMT
+      - Wed, 11 Feb 2015 19:15:17 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":true}}"
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"LibraryID\":\"<QUALTRICS_LIBRARY_ID>\",\"MessageID\":\"MS_4Sktf6RBi4TJtGt\",\"Description\":\"Newest
+        Message\",\"Category\":\"InviteEmails\"}}"
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:25 GMT
+  recorded_at: Wed, 11 Feb 2015 19:15:20 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_9SjghvQ0LUiMgYt&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Format=JSON&FromEmail=example%40example.com&FromName=yes_qualtrics&MessageID=MS_4Sktf6RBi4TJtGt&MessageLibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_6hshq8P9FR0BJn7&PanelLibraryID=<QUALTRICS_LIBRARY_ID>&RecipientID=MLRP_d0Z4W6GiigAonJ3&Request=sendSurveyToIndividual&SendDate=2015-02-11+12%3A15%3A20&SentFromAddress=noreply%40qemailserver.com&Subject=game+convention&SurveyID=SV_6rlsvOLzHEnr1CR&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
       - Faraday v0.9.1
@@ -411,31 +255,187 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 15:44:22 GMT
+      - Sat, 08 Feb 2025 19:15:18 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w11
+      - w631
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '12'
+      - '9'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '1073'
+      - '702'
+      Content-Length:
+      - '154'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 11 Feb 2015 19:15:19 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":true,\"EmailDistributionID\":\"EMD_eQjEi3uvaOhVfkF\",\"DistributionQueueID\":\"EMD_eQjEi3uvaOhVfkF\"}}"
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 19:15:22 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_6hshq8P9FR0BJn7&RecipientID=MLRP_d0Z4W6GiigAonJ3&Request=removeRecipient&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 08 Feb 2025 19:15:19 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w423
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
       - '16'
       - '9'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '493'
-      - '900'
+      - '259'
+      - '695'
+      Content-Length:
+      - '63'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 11 Feb 2015 19:15:19 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":1}}"
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 19:15:22 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_6hshq8P9FR0BJn7&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 08 Feb 2025 19:15:20 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w202
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '14'
+      - '16'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '224'
+      - '636'
+      Content-Length:
+      - '66'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 11 Feb 2015 19:15:20 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":true}}"
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 19:15:23 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_6rlsvOLzHEnr1CR&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 08 Feb 2025 19:15:21 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w2
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '14'
+      - '14'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '528'
+      - '935'
       Content-Length:
       - '54'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 15:44:23 GMT
+      - Wed, 11 Feb 2015 19:15:21 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":null}"
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 15:44:26 GMT
+  recorded_at: Wed, 11 Feb 2015 19:15:24 GMT
 recorded_with: VCR 2.9.3

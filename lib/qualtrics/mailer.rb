@@ -37,7 +37,7 @@ module Qualtrics
       )
 
       if response.success?
-        create_distribution(response, survey.id)
+        create_distribution(response, survey.id, message.id)
       else
         false
       end
@@ -57,7 +57,7 @@ module Qualtrics
       )
 
       if response.success?
-        create_distribution(response, survey.id)
+        create_distribution(response, survey.id, message.id)
       else
         false
       end
@@ -75,7 +75,7 @@ module Qualtrics
       )
 
       if response.success?
-        create_distribution(response, distribution.survey_id)
+        create_distribution(response, distribution.survey_id, message.id)
       else
         false
       end
@@ -100,8 +100,9 @@ module Qualtrics
       time.strftime("%Y-%m-%d %H:%M:%S")
     end
 
-    def create_distribution(response, survey_id)
+    def create_distribution(response, survey_id, message_id)
       Qualtrics::Distribution.new({
+        message_id: message_id,
         survey_id: survey_id,
         id: response.result['EmailDistributionID']
       })

@@ -12,7 +12,6 @@ module Qualtrics
       @library_id || configuration.default_library_id
     end
 
-
     def success?
       @last_response && @last_response.success?
     end

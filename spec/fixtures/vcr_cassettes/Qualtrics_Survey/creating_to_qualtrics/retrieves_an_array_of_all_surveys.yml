@@ -9,7 +9,7 @@ http_interactions:
         survey\r\n-------------RubyMultipartPost\r\nContent-Disposition: form-data;
         name=\"Data\"; filename=\"sample_survey.xml\"\r\nContent-Length: 1296\r\nContent-Type:
         text/xml\r\nContent-Transfer-Encoding: binary\r\n\r\n<?xml version=\"1.0\"
-        encoding=\"UTF-8\"?>\n<SurveyDefinition><SurveyName>Sample survey</SurveyName><OwnerID><QUALTRICS_LIBRARY_ID</OwnerID><isActive>0</isActive><CreationDate>2015-02-05
+        encoding=\"UTF-8\"?>\n<SurveyDefinition><SurveyName>Sample survey</SurveyName><OwnerID><QUALTRICS_LIBRARY_ID></OwnerID><isActive>0</isActive><CreationDate>2015-02-05
         13:57:01</CreationDate><LastModifiedDate>2015-02-05 13:57:41</LastModifiedDate><StartDate>0000-00-00
         00:00:00</StartDate><ExpirationDate>0000-00-00 00:00:00</ExpirationDate><Languages><Language
         Default=\"1\">EN</Language></Languages><Questions><Question QuestionID=\"QID1\"><Type>MC</Type><Selector>SAVR</Selector><SubSelector>TX</SubSelector><QuestionText><![CDATA[Only
@@ -27,7 +27,7 @@ http_interactions:
         form-data; name=\"Request\"\r\n\r\nimportSurvey\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -46,42 +46,42 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Thu, 06 Feb 2025 21:41:06 GMT
+      - Sat, 08 Feb 2025 19:16:22 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w016
+      - w8
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '1'
-      - '2'
+      - '10'
+      - '13'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '472'
-      - '936'
+      - '1098'
+      - '573'
       Content-Length:
       - '83'
       Content-Type:
       - application/json
       Date:
-      - Mon, 09 Feb 2015 21:41:06 GMT
+      - Wed, 11 Feb 2015 19:16:23 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"SurveyID\":\"SV_20tuQ4U8vTylOlf\"}}"
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"SurveyID\":\"SV_2srUFiUg3s8Nz25\"}}"
     http_version: 
-  recorded_at: Mon, 09 Feb 2015 21:41:06 GMT
+  recorded_at: Wed, 11 Feb 2015 19:16:26 GMT
 - request:
     method: get
-    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID&Request=getSurveys&Token=<QUALTRICS_TOKEN>&User=<QUALTRICS_USER>&Version=2.3
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&Request=getSurveys&Token=<QUALTRICS_TOKEN>&User=<QUALTRICS_USER>&Version=2.3
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -96,67 +96,67 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Thu, 06 Feb 2025 21:41:07 GMT
+      - Sat, 08 Feb 2025 19:16:24 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w18
+      - w631
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '1'
-      - '2'
+      - '14'
+      - '15'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '286'
-      - '699'
+      - '193'
+      - '623'
       Content-Length:
       - '2921'
       Content-Type:
       - application/json
       Date:
-      - Mon, 09 Feb 2015 21:41:07 GMT
+      - Wed, 11 Feb 2015 19:16:24 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Surveys\":[{\"responses\":\"496\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_1zPYmohnDdgSdh3\",\"SurveyName\":\"Full
-        Insight Survey (Brookeside Version)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
+      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Surveys\":[{\"responses\":\"516\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_1zPYmohnDdgSdh3\",\"SurveyName\":\"Full
+        Insight Survey (Brookeside Version)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID>\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
         00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2014-10-02
-        18:03:12\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID\",\"LastModified\":\"2014-12-31
-        02:05:51\",\"LastActivated\":\"2014-10-02 18:13:07\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"SurveyType\":\"SV\",\"SurveyID\":\"SV_20tuQ4U8vTylOlf\",\"SurveyName\":\"Complex
-        survey\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID\",\"SurveyStatus\":\"Inactive\",\"SurveyStartDate\":\"0000-00-00
-        00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2015-02-09
-        14:41:06\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID\",\"LastModified\":\"2015-02-09
-        14:41:06\",\"LastActivated\":\"0000-00-00 00:00:00\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"responses\":\"25\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_6ukYMZ14DGZic0R\",\"SurveyName\":\"Full
+        18:03:12\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID>\",\"LastModified\":\"2014-12-31
+        02:05:51\",\"LastActivated\":\"2014-10-02 18:13:07\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"SurveyType\":\"SV\",\"SurveyID\":\"SV_2srUFiUg3s8Nz25\",\"SurveyName\":\"Complex
+        survey\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID>\",\"SurveyStatus\":\"Inactive\",\"SurveyStartDate\":\"0000-00-00
+        00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2015-02-11
+        12:16:23\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID>\",\"LastModified\":\"2015-02-11
+        12:16:23\",\"LastActivated\":\"0000-00-00 00:00:00\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"responses\":\"25\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_6ukYMZ14DGZic0R\",\"SurveyName\":\"Full
         Insight Survey - Japan PROD\",\"SurveyDescription\":\"Full Insight Survey
-        - Japan\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
+        - Japan\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID>\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
         00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2013-10-31
-        13:05:06\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID\",\"LastModified\":\"2014-02-12
+        13:05:06\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID>\",\"LastModified\":\"2014-02-12
         12:30:23\",\"LastActivated\":\"2013-10-31 13:27:46\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"responses\":\"1974\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_aacWNKg4MVNw6Bn\",\"SurveyName\":\"Full
-        Insight Survey (SalesEquity Version)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
+        Insight Survey (SalesEquity Version)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID>\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
         00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2013-06-19
-        11:51:54\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID\",\"LastModified\":\"2014-11-10
+        11:51:54\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID>\",\"LastModified\":\"2014-11-10
         08:54:23\",\"LastActivated\":\"2014-02-06 08:02:22\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"responses\":\"2\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_afzoFekkN5awFhP\",\"SurveyName\":\"Full
-        Insight Survey (extra question)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
+        Insight Survey (extra question)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID>\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
         00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2014-07-30
-        09:26:40\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID\",\"LastModified\":\"2014-10-29
+        09:26:40\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID>\",\"LastModified\":\"2014-10-29
         12:31:31\",\"LastActivated\":\"2014-07-30 09:28:56\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"},{\"responses\":\"125\",\"SurveyType\":\"SV\",\"SurveyID\":\"SV_egSy0PYkF9wnAd7\",\"SurveyName\":\"Full
-        Insight Survey (for dev)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
+        Insight Survey (for dev)\",\"SurveyOwnerID\":\"<QUALTRICS_LIBRARY_ID>\",\"SurveyStatus\":\"Active\",\"SurveyStartDate\":\"0000-00-00
         00:00:00\",\"SurveyExpirationDate\":\"0000-00-00 00:00:00\",\"SurveyCreationDate\":\"2014-02-14
-        14:15:09\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID\",\"LastModified\":\"2015-02-05
+        14:15:09\",\"CreatorID\":\"<QUALTRICS_LIBRARY_ID>\",\"LastModified\":\"2015-02-05
         12:54:22\",\"LastActivated\":\"2014-02-14 14:56:12\",\"UserFirstName\":\"Engineer\",\"UserLastName\":\"Development\"}]}}"
     http_version: 
-  recorded_at: Mon, 09 Feb 2015 21:41:07 GMT
+  recorded_at: Wed, 11 Feb 2015 19:16:27 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_20tuQ4U8vTylOlf&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_2srUFiUg3s8Nz25&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -173,31 +173,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Thu, 06 Feb 2025 21:41:08 GMT
+      - Sat, 08 Feb 2025 19:16:24 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w2
+      - w163
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '1'
-      - '2'
+      - '11'
+      - '21'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '555'
-      - '986'
+      - '540'
+      - '979'
       Content-Length:
       - '54'
       Content-Type:
       - application/json
       Date:
-      - Mon, 09 Feb 2015 21:41:08 GMT
+      - Wed, 11 Feb 2015 19:16:25 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":null}"
     http_version: 
-  recorded_at: Mon, 09 Feb 2015 21:41:08 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Wed, 11 Feb 2015 19:16:28 GMT
+recorded_with: VCR 2.9.3
