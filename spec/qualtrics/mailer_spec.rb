@@ -106,16 +106,22 @@ describe Qualtrics::Mailer, :vcr do
     end
 
     it 'sends a survey to an individual and creates a distribution' do
-      qualtrics_distribution = mailer.send_to_individual(recipient, message, survey)
+      qualtrics_distribution = mailer.send_survey_to_individual(recipient, message, survey)
       expect(qualtrics_distribution.survey_id).to equal(survey.id)
       expect(qualtrics_distribution.id).to_not be_nil
     end
 
     it 'sends a reminder to a distribution' do
-      qualtrics_distribution = mailer.send_to_individual(recipient, message, survey)
+      qualtrics_distribution = mailer.send_survey_to_individual(recipient, message, survey)
       reminder_distribution = mailer.send_reminder(qualtrics_distribution, message)
       expect(reminder_distribution.survey_id).to equal(survey.id)
       expect(reminder_distribution.id).to_not be_nil
+    end
+
+    it 'sends a survey to a panel and creates a distribution' do
+      qualtrics_distribution = mailer.send_survey_to_panel(panel, message, survey)
+      expect(qualtrics_distribution.survey_id).to equal(survey.id)
+      expect(qualtrics_distribution.id).to_not be_nil
     end
   end
 end

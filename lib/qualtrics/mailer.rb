@@ -22,7 +22,7 @@ module Qualtrics
       @sent_from_address = options[:sent_from_address] || 'noreply@qemailserver.com'
     end
 
-    def send_to_individual(recipient, message, survey)
+    def send_survey_to_individual(recipient, message, survey)
       return false if !valid?
 
       response = post('sendSurveyToIndividual', attributes.merge(
@@ -37,16 +37,35 @@ module Qualtrics
       )
 
       if response.success?
-        Qualtrics::Distribution.new({
-          survey_id: survey.id,
-          id: response.result['EmailDistributionID']
+        create_distribution(response, survey.id)
+      else
+        false
+      end
+    end
+
+    def send_survey_to_panel(panel, message, survey)
+      return false if !valid?
+
+      response = post('sendSurveyToPanel', attributes.merge(
+        {
+          'PanelID' => panel.id,
+          'MessageID' => message.id,
+          'SurveyID' => survey.id,
+          'MessageLibraryID' => library_id,
+          'PanelLibraryID' => library_id
         })
+      )
+
+      if response.success?
+        create_distribution(response, survey.id)
       else
         false
       end
     end
 
     def send_reminder(distribution, message)
+      return false if !valid?
+
       response = post('sendReminder', attributes.merge(
         {
           'ParentEmailDistributionID' => distribution.id,
@@ -56,10 +75,7 @@ module Qualtrics
       )
 
       if response.success?
-        Qualtrics::Distribution.new({
-          survey_id: distribution.survey_id,
-          id: response.result['EmailDistributionID']
-        })
+        create_distribution(response, distribution.survey_id)
       else
         false
       end
@@ -82,6 +98,13 @@ module Qualtrics
 
     def formatted_time(time)
       time.strftime("%Y-%m-%d %H:%M:%S")
+    end
+
+    def create_distribution(response, survey_id)
+      Qualtrics::Distribution.new({
+        survey_id: survey_id,
+        id: response.result['EmailDistributionID']
+      })
     end
   end
 end
