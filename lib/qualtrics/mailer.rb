@@ -6,19 +6,20 @@ module Qualtrics
     include ActiveSupport
     include ActiveModel::Validations
 
-    attr_accessor :send_date, :from_email, :from_name, :subject
+    attr_accessor :send_date, :from_email, :from_name, :subject, :sent_from_address
     validates :send_date, presence: true
     validates :from_email, presence: true
     validates :from_name, presence: true
     validates :subject, presence: true
 
-    QUALTRICS_POST_TIMEZONE = "Mountain Time (US & Canada)"
+    QUALTRICS_POST_TIMEZONE = 'Mountain Time (US & Canada)'
 
     def initialize(options={})
       @send_date = options[:send_date] || post_time
       @from_email = options[:from_email]
       @from_name = options[:from_name]
       @subject = options[:subject]
+      @sent_from_address = options[:sent_from_address] || 'noreply@qemailserver.com'
     end
 
     def send_to_individual(recipient, message, survey)
@@ -35,15 +36,42 @@ module Qualtrics
         })
       )
 
-      response.success?
+      if response.success?
+        Qualtrics::Distribution.new({
+          survey_id: survey.id,
+          id: response.result['EmailDistributionID']
+        })
+      else
+        false
+      end
+    end
+
+    def send_reminder(distribution, message)
+      response = post('sendReminder', attributes.merge(
+        {
+          'ParentEmailDistributionID' => distribution.id,
+          'MessageID' => message.id,
+          'LibraryID' => library_id,
+        })
+      )
+
+      if response.success?
+        Qualtrics::Distribution.new({
+          survey_id: distribution.survey_id,
+          id: response.result['EmailDistributionID']
+        })
+      else
+        false
+      end
     end
 
     def attributes
       {
-        'SendDate'  => send_date,
-        'FromEmail' => from_email,
-        'FromName'  => from_name,
-        'Subject'   => subject
+        'SendDate'        => send_date,
+        'FromEmail'       => from_email,
+        'FromName'        => from_name,
+        'Subject'         => subject,
+        'SentFromAddress' => sent_from_address
       }
     end
 

@@ -12,6 +12,7 @@ require "qualtrics/survey"
 require "qualtrics/survey_import"
 
 require "qualtrics/message"
+require "qualtrics/distribution"
 require "qualtrics/mailer"
 
 # not always necessary for runtime

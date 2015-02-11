@@ -40,6 +40,14 @@ describe Qualtrics::Mailer, :vcr do
     expect(mailer.subject).to eq(subject)
   end
 
+  it 'has a sent from email' do
+    sent_from_address = 'sent_here@gmail.com'
+    mailer = Qualtrics::Mailer.new({
+      sent_from_address: sent_from_address
+    })
+    expect(mailer.sent_from_address).to eq(sent_from_address)
+  end
+
   let(:panel) do
     Qualtrics::Panel.new({
       name: 'Newest Panel',
@@ -72,7 +80,19 @@ describe Qualtrics::Mailer, :vcr do
   let(:survey) { survey_import.survey }
 
   context 'creating to qualtrics' do
+    let(:from_name) { 'yes_qualtrics' }
+    let(:from_email) { 'example@example.com' }
+    let(:subject) { 'game convention' }
+    let(:mailer) do
+      mailer = Qualtrics::Mailer.new({
+        from_email: from_email,
+        from_name: from_name,
+        subject: subject
+      })
+    end
+
     before(:each) do
+
       panel.save
       recipient.save
       survey_import.save
@@ -85,19 +105,17 @@ describe Qualtrics::Mailer, :vcr do
       survey.destroy
     end
 
-    it 'sends a survey to an individual' do
-      from_email = 'example@example.com'
-      from_name = 'yes_qualtrics'
-      subject = 'game convention'
+    it 'sends a survey to an individual and creates a distribution' do
+      qualtrics_distribution = mailer.send_to_individual(recipient, message, survey)
+      expect(qualtrics_distribution.survey_id).to equal(survey.id)
+      expect(qualtrics_distribution.id).to_not be_nil
+    end
 
-      mailer = Qualtrics::Mailer.new({
-        from_email: from_email,
-        from_name: from_name,
-        subject: subject
-      })
-
-      response = mailer.send_to_individual(recipient, message, survey)
-      expect(response).to be true
+    it 'sends a reminder to a distribution' do
+      qualtrics_distribution = mailer.send_to_individual(recipient, message, survey)
+      reminder_distribution = mailer.send_reminder(qualtrics_distribution, message)
+      expect(reminder_distribution.survey_id).to equal(survey.id)
+      expect(reminder_distribution.id).to_not be_nil
     end
   end
 end
