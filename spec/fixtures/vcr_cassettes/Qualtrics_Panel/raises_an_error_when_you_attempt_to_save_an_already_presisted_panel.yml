@@ -8,7 +8,7 @@ http_interactions:
       string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&Name=An+Even+Newer+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
-      - Faraday v0.9.1
+      - Faraday v0.9.0
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -25,31 +25,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 19:15:42 GMT
+      - Sun, 23 Feb 2025 16:45:51 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w19
+      - w634
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '10'
-      - '20'
+      - '13'
+      - '7'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '198'
-      - '590'
+      - '222'
+      - '693'
       Content-Length:
       - '82'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 19:15:42 GMT
+      - Thu, 26 Feb 2015 16:45:51 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"PanelID\":\"ML_2noqn74vfB0GhMh\"}}"
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_e5qxTz3mECukme9"}}'
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 19:15:45 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Thu, 26 Feb 2015 16:45:57 GMT
+recorded_with: VCR 2.9.2

@@ -8,7 +8,7 @@ http_interactions:
       string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&Name=Newest+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
-      - Faraday v0.9.1
+      - Faraday v0.9.0
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -25,42 +25,42 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 19:15:49 GMT
+      - Sun, 23 Feb 2025 16:45:59 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w17
+      - w634
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '21'
-      - '9'
+      - '12'
+      - '5'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '589'
-      - '983'
+      - '276'
+      - '712'
       Content-Length:
       - '82'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 19:15:50 GMT
+      - Thu, 26 Feb 2015 16:45:59 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"PanelID\":\"ML_8cyV2nik4xEtp9X\"}}"
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_cwmZsCu0gmAJGPH"}}'
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 19:15:53 GMT
+  recorded_at: Thu, 26 Feb 2015 16:46:05 GMT
 - request:
     method: post
     uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
     body:
       encoding: UTF-8
-      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_8cyV2nik4xEtp9X&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+      string: Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_cwmZsCu0gmAJGPH&Request=deletePanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
     headers:
       User-Agent:
-      - Faraday v0.9.1
+      - Faraday v0.9.0
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -77,31 +77,31 @@ http_interactions:
       Cache-Control:
       - max-age=315360000
       Expires:
-      - Sat, 08 Feb 2025 19:15:50 GMT
+      - Sun, 23 Feb 2025 16:46:00 GMT
       P3p:
       - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
         DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
       Servershortname:
-      - w189
+      - w202
       X-Cnection:
       - close
       X-Edgeconnect-Midmile-Rtt:
-      - '11'
-      - '17'
+      - '10'
+      - '12'
       X-Edgeconnect-Origin-Mex-Latency:
-      - '259'
-      - '710'
+      - '314'
+      - '764'
       Content-Length:
       - '66'
       Content-Type:
       - application/json
       Date:
-      - Wed, 11 Feb 2015 19:15:51 GMT
+      - Thu, 26 Feb 2015 16:46:00 GMT
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "{\"Meta\":{\"Status\":\"Success\",\"Debug\":\"\"},\"Result\":{\"Success\":true}}"
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"Success":true}}'
     http_version: 
-  recorded_at: Wed, 11 Feb 2015 19:15:53 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Thu, 26 Feb 2015 16:46:05 GMT
+recorded_with: VCR 2.9.2

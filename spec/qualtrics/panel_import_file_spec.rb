@@ -17,7 +17,7 @@ describe Qualtrics::PanelImportFile do
   end
 
   it 'contains a header' do
-    expect(File.read(panel_import_file.temp_file)).to include("first_name")
+    expect(File.read(panel_import_file.temp_file)).to include("FirstName")
   end
 
   it 'contains a row of recipients' do

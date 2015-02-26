@@ -14,25 +14,25 @@ module Qualtrics
 
     def field_map
       {
-        'first_name'    => recipient.first_name,
-        'last_name'     => recipient.last_name,
-        'email'         => recipient.email,
-        'embedded_data' => recipient.embedded_data,
-        'external_data' => recipient.external_data,
-        'unsubscribed'  => recipient.unsubscribed,
-        'language'      => recipient.language
+        'FirstName'    => recipient.first_name,
+        'LastName'     => recipient.last_name,
+        'Email'         => recipient.email,
+        'EmbeddedData' => recipient.embedded_data,
+        'ExternalData' => recipient.external_data,
+        'Unsubscribed'  => recipient.unsubscribed,
+        'Language'      => recipient.language
       }
     end
     class << self
       def fields
         [
-          'first_name',
-          'last_name',
-          'email',
-          'embedded_data',
-          'external_data',
-          'unsubscribed',
-          'language'
+          'FirstName',
+          'LastName',
+          'Email',
+          'EmbeddedData',
+          'ExternalData',
+          'Unsubscribed',
+          'Language'
         ]
       end
     end

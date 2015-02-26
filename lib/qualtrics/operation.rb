@@ -4,21 +4,37 @@ module Qualtrics
     REQUEST_METHOD_WHITELIST = [:get, :post]
     @@listeners = []
 
-    def initialize(http_method, action, options)
+    def initialize(http_method, action, options, body_override = nil)
       @http_method = http_method
       @action = action
       @options = options
       @entity_name = action.gsub(/(create|delete|update)/, '')
+      @body_override = body_override
       @command = $1
     end
 
     def issue_request
       raise Qualtrics::UnexpectedRequestMethod if !REQUEST_METHOD_WHITELIST.include?(http_method)
 
-      body = options.dup.merge(default_params)
-      body['Request'] = action
+      query = options.dup.merge(default_params)
+      query['Request'] = action
+      body = nil
+      query_params = {}
+      raw_resp = nil
 
-      Qualtrics::Response.new(connection.send(http_method, path, body)).tap do |response|
+      if @body_override
+        body = @body_override
+        query_params = query
+        raw_resp = connection.send(http_method, path, body) do |req|
+          req.params = query_params
+        end
+      else
+        body = query
+        raw_resp = connection.send(http_method, path, body)
+      end
+
+
+      Qualtrics::Response.new(raw_resp).tap do |response|
         if !@listeners_disabled
           @@listeners.each do |listener|
             listener.received_response(self, response)
@@ -54,7 +70,6 @@ module Qualtrics
 
     def connection
       @connection ||= Faraday.new(:url => 'https://survey.qualtrics.com') do |faraday|
-        faraday.request :multipart
         faraday.request  :url_encoded
         faraday.use ::FaradayMiddleware::FollowRedirects, limit: 3
         faraday.adapter Faraday.default_adapter

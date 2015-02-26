@@ -28,8 +28,8 @@ describe Qualtrics::PanelImport, :vcr => true  do
     recipients = [
       Qualtrics::Recipient.new(
         email: 'example@example.com',
-        first_name: 'First name',
-        last_name: 'Last name'
+        first_name: 'John',
+        last_name: 'Smith'
       )
     ]
 

@@ -32,30 +32,30 @@ describe Qualtrics::RecipientImportRow do
   end
 
   it 'returns email in the correct spot' do
-    expect(recipient_row.to_a[index('email')]).to eql(email)
+    expect(recipient_row.to_a[index('Email')]).to eql(email)
   end
 
   it 'returns the first_name in the correct spot' do
-    expect(recipient_row.to_a[index('first_name')]).to eql(first_name)
+    expect(recipient_row.to_a[index('FirstName')]).to eql(first_name)
   end
 
   it 'returns the last_name in the correct spot' do
-    expect(recipient_row.to_a[index('last_name')]).to eql(last_name)
+    expect(recipient_row.to_a[index('LastName')]).to eql(last_name)
   end
 
   it 'returns the external_data in the correct spot' do
-    expect(recipient_row.to_a[index('external_data')]).to eql(external_data)
+    expect(recipient_row.to_a[index('ExternalData')]).to eql(external_data)
   end
 
   it 'returns the embedded_data in the correct spot' do
-    expect(recipient_row.to_a[index('embedded_data')]).to eql(embedded_data)
+    expect(recipient_row.to_a[index('EmbeddedData')]).to eql(embedded_data)
   end
   it 'returns unsubscribed in the correct spot' do
-    expect(recipient_row.to_a[index('unsubscribed')]).to eql(unsubscribed)
+    expect(recipient_row.to_a[index('Unsubscribed')]).to eql(unsubscribed)
   end
 
   it 'returns language in the correct spot' do
-    expect(recipient_row.to_a[index('language')]).to eql(language)
+    expect(recipient_row.to_a[index('Language')]).to eql(language)
   end
 
 

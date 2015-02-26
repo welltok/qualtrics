@@ -20,8 +20,8 @@ module Qualtrics
       !id.nil?
     end
 
-    def post(request, options = {})
-      @last_response = self.class.post(request, options)
+    def post(request, options = {}, body_override = nil)
+      @last_response = self.class.post(request, options, body_override)
     end
 
     def get(request, options = {})
@@ -40,8 +40,8 @@ module Qualtrics
       end
     end
 
-    def self.post(request, options = {})
-      Qualtrics::Operation.new(:post, request, options).issue_request
+    def self.post(request, options = {}, body_override = nil)
+      Qualtrics::Operation.new(:post, request, options, body_override).issue_request
     end
 
     def self.get(request, options = {})
