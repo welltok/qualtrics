@@ -19,7 +19,7 @@ module Qualtrics
         'ExportTags' => 1
       })
 
-      if response.success?
+      if response.status == 200
         response
       else
         false
