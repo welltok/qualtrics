@@ -16,7 +16,7 @@ module Qualtrics
     def issue_request
       raise Qualtrics::UnexpectedRequestMethod if !REQUEST_METHOD_WHITELIST.include?(http_method)
 
-      query = options.dup.merge(default_params)
+      query = default_params.dup.merge(options)
       query['Request'] = action
       body = nil
       query_params = {}
