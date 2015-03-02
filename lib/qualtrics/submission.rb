@@ -11,7 +11,7 @@ module Qualtrics
       @time_stamp = options[:time_stamp]
     end
 
-    def info_hash
+    def csv_result
       response = get('getLegacyResponseData', {
         'SurveyID' => survey_id,
         'ResponseID' => id,
