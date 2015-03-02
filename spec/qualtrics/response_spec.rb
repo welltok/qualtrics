@@ -31,6 +31,7 @@ describe Qualtrics::Response, :vcr do
     raw_response = test_endpoint.get('/success')
     response = Qualtrics::Response.new(raw_response)
     expect(response.result).to be_kind_of(Hash)
+    expect(response.status).to eql(200)
   end
 
   it 'raises an exception when a 5xx error is received' do
@@ -42,7 +43,8 @@ describe Qualtrics::Response, :vcr do
     raw_response = test_endpoint.get('/server_error2')
 
     begin
-      Qualtrics::Response.new(raw_response)
+      response = Qualtrics::Response.new(raw_response)
+      expect(response.status).to eql(400)
     rescue Qualtrics::ServerErrorEncountered => e
       expect(e.message).to eql('Invalid request. Missing or invalid parameter RecipientID.')
     end
