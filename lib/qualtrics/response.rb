@@ -6,7 +6,7 @@ module Qualtrics
     def initialize(raw_response)
       @raw_response = raw_response
       if @raw_response.status != 200
-        raise Qualtrics::ServerErrorEncountered
+        raise Qualtrics::ServerErrorEncountered, error_message
       end
     end
 
@@ -29,6 +29,11 @@ module Qualtrics
         end
       end
       @body
+    end
+
+    private
+    def error_message
+      body['Meta'].nil? ? 'No error message' : body['Meta']['ErrorMessage']
     end
   end
 end

@@ -9,6 +9,7 @@ describe Qualtrics::Response, :vcr do
       builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |m|
         m.get('/success') { |env| [ 200, {}, '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_8BKIZdmCic6tkLb"}}' ]}
         m.get('/server_error') { |env| [500, {}, '']}
+        m.get('/server_error2') { |env| [400, {}, '{"Meta":{"Status":"Fubar","Debug":"","ErrorMessage":"Invalid request. Missing or invalid parameter RecipientID."}}']}
         m.get('/failure') { |env| [ 200, {}, '{"Meta":{"Status":"Fubar","Debug":""}}' ]}
       end
     end
@@ -37,5 +38,14 @@ describe Qualtrics::Response, :vcr do
     expect(lambda{ Qualtrics::Response.new(raw_response)}).to raise_error(Qualtrics::ServerErrorEncountered)
   end
 
+  it 'raises a error message when a 4xx error is received' do
+    raw_response = test_endpoint.get('/server_error2')
+
+    begin
+      Qualtrics::Response.new(raw_response)
+    rescue Qualtrics::ServerErrorEncountered => e
+      expect(e.message).to eql('Invalid request. Missing or invalid parameter RecipientID.')
+    end
+  end
 
 end
