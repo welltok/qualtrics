@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?ExportTags=1&Format=JSON&Request=getLegacyResponseData&ResponseID=R_296ZnPPDJEONkHP&SurveyID=SV_8deJytTY3InclQ9&Token=<QUALTRICS_TOKEN>&User=<QUALTRICS_USER>&Version=2.3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0,
+        max-age=315360000
+      Pragma:
+      - ''
+      Content-Transfer-Encoding:
+      - binary
+      Requeststatus:
+      - Success
+      Expires:
+      - Thu, 27 Feb 2025 19:32:02 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w11
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '1'
+      - '20'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '1356'
+      - '788'
+      Content-Length:
+      - '1199'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 02 Mar 2015 19:32:03 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"R_296ZnPPDJEONkHP":{"ResponseSet":"Default Response Set","Name":"fn,
+        kln","ExternalDataReference":"7","EmailAddress":"ksun@brookeside.com","IPAddress":"104.129.66.226","Status":"0","StartDate":"2015-03-02
+        13:50:13","EndDate":"2015-03-02 13:50:40","Finished":"1","seller_company":"","role":"","redirect_host":"","sect1_head":1,"q1_lc_1":"9","q2_lr_1":"9","q3_lr_1":"9","q4_lc_1":"9","q5_lc_1":"9","q6_li_1":"9","q7_lr_1":"9","q8_li_1":"9","sect2_head":1,"q1_cs_1":"4","q2_cr_1":"4","q3_ch_1":"4","q4_ci_1":"4","q5_cc_1":"4","q9_cp_1":"4","q10_cs_1":"4","q8_cr_1":"4","q6_ch_1":"4","q11_ci_1":"4","q7_cc_1":"4","q14_cp_1":"4","q13_cs_1":"4","q12_cr_1":"4","q15_ch_1":"4","q16_ci_1":"4","q17_cc_1":"4","q18_cp_1":"4","sect3_head":1,"q1_pi_1":"3","q2_pc_1":"3","q3_pr_1":"3","q4_pp_1":"3","q5_ps_1":"3","q6_ph_1":"3","q7_pi_1":"3","q8_pc_1":"3","q9_pr_1":"3","q10_pp_1":"3","q11_ps_1":"3","q12_ph_1":"3","q13_pi_1":"3","q14_pc_1":"3","q15_pr_1":"3","q16_pp_1":"3","q17_ps_1":"3","q18_ph_1":"3","q19_pi_1":"3","q20_pc_1":"3","q21_pr_1":"3","q22_pp_1":"3","q23_ps_1":"3","q24_ph_1":"3","q25_pi_1":"3","q26_pc_1":"3","q27_pr_1":"3","q28_pp_1":"3","q29_ps_1":"3","q30_ph_1":"3","sect4_head":1,"q1_mx":""}}'
+    http_version: 
+  recorded_at: Mon, 02 Mar 2015 19:32:03 GMT
+recorded_with: VCR 2.9.3

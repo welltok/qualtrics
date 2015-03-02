@@ -182,4 +182,31 @@ describe Qualtrics::Recipient, :vcr => true  do
     end
   end
 
+  context 'has responses' do
+    let(:recipient) { Qualtrics::Recipient.new }
+
+    it 'can check its own response history' do
+      allow(recipient).to receive(:info_hash).and_return (
+        {
+          'PanelMemberID' => 'whatever',
+          'PanelID' => 'this is',
+          'FirstName' => 'kk',
+          'LastName' => 'omg',
+          'RecipientResponseHistory' =>
+            [{'ResponseID' => 'response_id',
+              'SurveyID' => 'survey_id',
+              'TimeStamp' => '2015-03-02 11:50:40',
+              'EmailDistributionID' => 'distribution_id',
+              'FinishedSurvey' => true}]
+        }
+      )
+
+      response = recipient.response_history[0]
+      expect(response.distribution_id).to eql('distribution_id')
+      expect(response.finished_survey).to eql(true)
+      expect(response.id).to eql('response_id')
+      expect(response.survey_id).to eql('survey_id')
+      expect(response.time_stamp).to eql('2015-03-02 11:50:40')
+    end
+  end
 end
