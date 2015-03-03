@@ -1,3 +1,3 @@
 module Qualtrics
-  VERSION = "0.5.9b"
+  VERSION = "0.6.0"
 end
