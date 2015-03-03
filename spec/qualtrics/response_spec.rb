@@ -61,10 +61,10 @@ describe Qualtrics::Response, :vcr do
       end
     end
 
-    it 'can parse csv' do
+    it 'can return RAW csv file' do
       raw_response = content_endpoints.get('/csv_response')
       response = Qualtrics::Response.new(raw_response)
-      expect(response.result).to eql ([%w(csv stuff)])
+      expect(response.result).to eql ('csv,stuff')
     end
 
     it 'can parse json' do

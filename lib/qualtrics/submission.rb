@@ -11,7 +11,7 @@ module Qualtrics
       @time_stamp = options[:time_stamp]
     end
 
-    def csv_result
+    def raw_csv
       response = get('getLegacyResponseData', {
         'SurveyID' => survey_id,
         'ResponseID' => id,
@@ -20,7 +20,7 @@ module Qualtrics
       })
 
       if response.status == 200
-        response
+        response.result
       else
         false
       end

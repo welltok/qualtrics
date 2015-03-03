@@ -36,7 +36,7 @@ module Qualtrics
         elsif content_type == 'application/json'
           @body = JSON.parse(@raw_response.body)
         elsif content_type == 'application/vnd.msexcel'
-          @body = CSV.parse(@raw_response.body)
+          @body = @raw_response.body
         else
           raise Qualtrics::UnexpectedContentType, content_type
         end
