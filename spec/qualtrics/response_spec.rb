@@ -7,10 +7,10 @@ describe Qualtrics::Response, :vcr do
   let(:test_endpoint) do
     Faraday.new do |builder|
       builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |m|
-        m.get('/success') { |env| [ 200, {}, '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_8BKIZdmCic6tkLb"}}' ]}
-        m.get('/server_error') { |env| [500, {}, '']}
-        m.get('/server_error2') { |env| [400, {}, '{"Meta":{"Status":"Fubar","Debug":"","ErrorMessage":"Invalid request. Missing or invalid parameter RecipientID."}}']}
-        m.get('/failure') { |env| [ 200, {}, '{"Meta":{"Status":"Fubar","Debug":""}}' ]}
+        m.get('/success') { |env| [ 200, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_8BKIZdmCic6tkLb"}}' ]}
+        m.get('/server_error') { |env| [500, {'Content-Type'=>'application/json'}, '']}
+        m.get('/server_error2') { |env| [400, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Fubar","Debug":"","ErrorMessage":"Invalid request. Missing or invalid parameter RecipientID."}}']}
+        m.get('/failure') { |env| [ 200, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Fubar","Debug":""}}' ]}
       end
     end
   end
@@ -50,4 +50,36 @@ describe Qualtrics::Response, :vcr do
     end
   end
 
+  context 'parsing different content types' do
+    let(:content_endpoints) do
+      Faraday.new do |builder|
+        builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |m|
+          m.get('/csv_response') { |env| [ 200, {'Content-Type'=>'application/vnd.msexcel'}, 'csv,stuff' ]}
+          m.get('/json_response') { |env| [ 200, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Fubar","Debug":""}}' ]}
+          m.get('/random_content') { |env| [ 200, {'Content-Type'=>'random stuff'}, 'not a real body' ]}
+        end
+      end
+    end
+
+    it 'can parse csv' do
+      # s = Qualtrics::Submission.new(id: 'R_5msAm76fXKn1adf', survey_id:'SV_8deJytTY3InclQ9')
+      raw_response = content_endpoints.get('/csv_response')
+      response = Qualtrics::Response.new(raw_response)
+      expect(lambda{ response.send(:body) }).to_not raise_error
+    end
+
+    it 'can parse json' do
+      # s = Qualtrics::Submission.new(id: 'R_5msAm76fXKn1adf', survey_id:'SV_8deJytTY3InclQ9')
+      raw_response = content_endpoints.get('/json_response')
+      response = Qualtrics::Response.new(raw_response)
+      expect(lambda{ response.send(:body) }).to_not raise_error
+    end
+
+    it 'raises an error for other content types' do
+      # s = Qualtrics::Submission.new(id: 'R_5msAm76fXKn1adf', survey_id:'SV_8deJytTY3InclQ9')
+      raw_response = content_endpoints.get('/random_content')
+      response = Qualtrics::Response.new(raw_response)
+      expect(lambda{ response.send(:body) }).to raise_error(Qualtrics::UnexpectedContentType)
+    end
+  end
 end

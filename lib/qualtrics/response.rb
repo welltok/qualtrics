@@ -1,4 +1,5 @@
 require 'json'
+require 'csv'
 
 module Qualtrics
 	class Response
@@ -28,11 +29,27 @@ module Qualtrics
       if @body.nil?
         if @raw_response.body == ''
           @body = {}
-        else
+        elsif content_type == 'application/json'
           @body = JSON.parse(@raw_response.body)
+        elsif content_type == 'application/vnd.msexcel'
+          @body = CSV.parse(@raw_response.body)
+        else
+          raise Qualtrics::UnexpectedContentType, content_type
         end
       end
       @body
+    end
+
+    def content_type
+      if @content_type.nil?
+        header = @raw_response.headers['Content-Type']
+        if header.nil?
+          @content_type = {}
+        else
+          @content_type = header
+        end
+      end
+      @content_type
     end
 
     private
