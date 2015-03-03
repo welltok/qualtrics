@@ -55,28 +55,25 @@ describe Qualtrics::Response, :vcr do
       Faraday.new do |builder|
         builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |m|
           m.get('/csv_response') { |env| [ 200, {'Content-Type'=>'application/vnd.msexcel'}, 'csv,stuff' ]}
-          m.get('/json_response') { |env| [ 200, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Fubar","Debug":""}}' ]}
+          m.get('/json_response') { |env| [ 200, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Fubar","Debug":""}, "Result":{"Works":"Working"}}' ]}
           m.get('/random_content') { |env| [ 200, {'Content-Type'=>'random stuff'}, 'not a real body' ]}
         end
       end
     end
 
     it 'can parse csv' do
-      # s = Qualtrics::Submission.new(id: 'R_5msAm76fXKn1adf', survey_id:'SV_8deJytTY3InclQ9')
       raw_response = content_endpoints.get('/csv_response')
       response = Qualtrics::Response.new(raw_response)
-      expect(lambda{ response.send(:body) }).to_not raise_error
+      expect(response.result).to eql ([%w(csv stuff)])
     end
 
     it 'can parse json' do
-      # s = Qualtrics::Submission.new(id: 'R_5msAm76fXKn1adf', survey_id:'SV_8deJytTY3InclQ9')
       raw_response = content_endpoints.get('/json_response')
       response = Qualtrics::Response.new(raw_response)
-      expect(lambda{ response.send(:body) }).to_not raise_error
+      expect(response.result).to eql ({'Works' => 'Working'})
     end
 
     it 'raises an error for other content types' do
-      # s = Qualtrics::Submission.new(id: 'R_5msAm76fXKn1adf', survey_id:'SV_8deJytTY3InclQ9')
       raw_response = content_endpoints.get('/random_content')
       response = Qualtrics::Response.new(raw_response)
       expect(lambda{ response.send(:body) }).to raise_error(Qualtrics::UnexpectedContentType)

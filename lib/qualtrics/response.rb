@@ -16,7 +16,11 @@ module Qualtrics
     end
 
     def result
-      body['Result'].nil? ? {} : body['Result']
+      if content_type == 'application/vnd.msexcel'
+        body.nil? ? {} : body
+      else
+        body['Result'].nil? ? {} : body['Result']
+      end
     end
 
     def status
