@@ -69,8 +69,8 @@ Retrieve submission results if you know the Qualtrics response_qid
 
 ## TODO
 
-  Allow retrieving responses in different formats.
-  Qualtrics does not all deleting library messages, find a way to test around this.
+  1. Allow retrieving responses in different formats.
+  2. Qualtrics does not all deleting library messages, find a way to test around this.
   
 ## Contributing
 
