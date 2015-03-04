@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/sunkev/qualtrics/badges/gpa.svg)](https://codeclimate.com/github/sunkev/qualtrics)
+
 # Qualtrics
 
 A nice wrapper for the Qualtrics REST API. Currently under fast iterations. 
