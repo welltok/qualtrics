@@ -1,6 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/sunkev/qualtrics/badges/gpa.svg)](https://codeclimate.com/github/sunkev/qualtrics)
-
-[![Build Status](https://travis-ci.org/sunkev/qualtrics.svg?branch=master)](https://travis-ci.org/sunkev/qualtrics)
+[![Code Climate](https://codeclimate.com/github/sunkev/qualtrics/badges/gpa.svg)](https://codeclimate.com/github/sunkev/qualtrics) [![Build Status](https://travis-ci.org/sunkev/qualtrics.svg?branch=master)](https://travis-ci.org/sunkev/qualtrics) [![Coverage Status](https://coveralls.io/repos/sunkev/qualtrics/badge.svg)](https://coveralls.io/r/sunkev/qualtrics) [![Gem Version](https://badge.fury.io/rb/qualtrics.svg)](http://badge.fury.io/rb/qualtrics)
 
 # Qualtrics
 
