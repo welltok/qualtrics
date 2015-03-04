@@ -1,35 +1,81 @@
 # Qualtrics
 
-TODO: Write a gem description
+A nice wrapper for the Qualtrics REST API. Currently under fast iterations. 
+Full functional, but may see many changes before 1.0 release. 
+Not recommended for production use before then.
 
-## Installation
-
-Add this line to your application's Gemfile:
+Just add the gem.
 
     gem 'qualtrics'
+    
+## Configuration
 
-And then execute:
+Set the user, token and default library id
 
-    $ bundle
+    Qualtrics.configure do |config|
+      config.user = ENV['QUALTRICS_USER']
+      config.token = ENV['QUALTRICS_TOKEN']
+      config.default_library_id = ENV['QUALTRICS_LIBRARY_ID']
+    end
 
-Or install it yourself as:
+## Example usage
 
-    $ gem install qualtrics
+Add/remove a panel to Qualtrics
 
-Qualtrics.configure do |config|
-  config.user = ENV['QUALTRICS_USER']
-  config.token = ENV['QUALTRICS_TOKEN']
-  config.default_library_id = ENV['QUALTRICS_LIBRARY_ID']
-end
+    panel = Qualtrics::Panel.new({
+      name: 'My first panel'
+    })
 
-## Usage
+    panel.save
+    panel.destroy
+    
+Add/remove recipients to panel
+    
+    recipient = Qualtrics::Recipient.new({
+      panel_id: panel.id
+    })
+    
+    recipient.save
+    recipient.delete
+    
+Retrieve all survey and messages in Qualtrics
+    
+    Qualtrics::Survey.all   -> returns array of Qualtrics::Survey objects
+    Qualtrics::Message.all
+  
+Send a survey to a panel or individual with the Mailer object
 
-TODO: Write usage instructions here
+    mailer = Qualtrics::Mailer.new({
+      from_email: 'from_email',
+      from_name: 'from_name',
+      subject: 'subject'
+    })
+  
+    mailer.send_survey_to_individual(recipient, message, survey)
+    mailer.send_survey_to_panel(panel, message, survey)
+    
+Retrieve submission results if you know the Qualtrics response_qid
+  
+    submission = Qualtrics::Submission.new({
+      id: 'response_qid',
+      survey_id: 'survey_id'
+    })
+    
+    submission.raw_csv
+    
+## Interesting features
 
+  Can batch update all the recipients in a panel for efficency.
+
+## TODO
+
+  Allow retrieving responses in different formats.
+  Qualtrics does not all deleting library messages, find a way to test around this.
+  
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/qualtrics/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+1. Fork it ( https://github.com/[my-github-username]/qualtrics/fork 
+2. Add tests.
+3. Make your feature addition or bug fix.
+4. Send me a pull request.
+
