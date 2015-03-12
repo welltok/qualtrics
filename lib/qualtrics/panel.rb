@@ -50,6 +50,14 @@ module Qualtrics
       end
     end
 
+    def add_recipients(recipients)
+      panel_import = Qualtrics::PanelImport.new({
+          panel: self,
+          recipients: recipients
+      })
+      panel_import.save
+    end
+
     def destroy
       response = post('deletePanel', {
         'LibraryID' => library_id,

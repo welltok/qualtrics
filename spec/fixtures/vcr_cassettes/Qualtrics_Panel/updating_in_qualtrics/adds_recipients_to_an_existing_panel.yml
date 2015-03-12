@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Category=Great+Category&Format=JSON&LibraryID=<QUALTRICS_LIBRARY_ID>&Name=Newest+Panel&Request=createPanel&Token=<QUALTRICS_TOKEN>&User=brookesidedev%40brookeside.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sun, 09 Mar 2025 20:52:52 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w634
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '10'
+      - '14'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '224'
+      - '733'
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 12 Mar 2015 20:52:52 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_5gMUHo4Xfog8K6F"}}'
+    http_version: 
+  recorded_at: Thu, 12 Mar 2015 20:52:52 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?ColumnHeaders=1&Email=3&EmbeddedData=4&ExternalData=5&FirstName=1&Format=JSON&Language=7&LastName=2&LibraryID=<QUALTRICS_LIBRARY_ID>&PanelID=ML_5gMUHo4Xfog8K6F&Request=importPanel&Token=<QUALTRICS_TOKEN>&Unsubscribed=6&User=<QUALTRICS_USER>&Version=2.3
+    body:
+      encoding: UTF-8
+      string: |
+        "FirstName","LastName","Email","EmbeddedData","ExternalData","Unsubscribed","Language"
+        "New","Person","example@example.com","","","",""
+        "Another","NewPerson","example@example.com","","","",""
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sun, 09 Mar 2025 20:52:53 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE", CP="CAO
+        DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w202
+      X-Cnection:
+      - close
+      X-Edgeconnect-Midmile-Rtt:
+      - '10'
+      - '11'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '323'
+      - '792'
+      Content-Length:
+      - '214'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 12 Mar 2015 20:52:53 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_5gMUHo4Xfog8K6F","Count":2,"IgnoredCount":0,"Recipients":{"MLRP_9BmlZ9vmPgQ9hGJ":"example@example.com","MLRP_7WlcwPHwkUYPWKx":"example@example.com"}}}'
+    http_version: 
+  recorded_at: Thu, 12 Mar 2015 20:52:53 GMT
+recorded_with: VCR 2.9.2

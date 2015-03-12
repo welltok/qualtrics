@@ -13,6 +13,7 @@ module Qualtrics
       payload = headers
       payload['LibraryID'] = library_id
       payload['ColumnHeaders'] = 1
+      payload['PanelID'] = @panel.id if @panel.persisted?
       file = Qualtrics::PanelImportFile.new(@recipients)
       post 'importPanel', payload, File.read(file.temp_file)
       true

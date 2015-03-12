@@ -77,4 +77,16 @@ describe Qualtrics::Panel, :vcr => true  do
     panel.save
     expect(Qualtrics::Panel.all.map{|p| p.id}).to include(panel.id)
   end
+
+  context 'updating in qualtrics' do
+    it 'adds recipients to an existing panel' do
+      panel.save
+      expect(panel.persisted?).to be true
+      recipients = [
+        Qualtrics::Recipient.new(email: 'example@example.com', first_name: 'New', last_name: 'Person'),
+        Qualtrics::Recipient.new(email: 'example@example.com', first_name: 'Another', last_name: 'NewPerson')
+      ]
+      expect(panel.add_recipients(recipients)).to be true
+    end
+  end
 end
