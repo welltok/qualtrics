@@ -4,6 +4,8 @@ module Qualtrics
     include ActiveModel::Model
     include ActiveModel::Validations
 
+    QUALTRICS_POST_TIMEZONE = 'Mountain Time (US & Canada)'
+
     def library_id=(lib_id)
       @library_id = lib_id
     end
@@ -50,6 +52,10 @@ module Qualtrics
 
     def self.configuration
       Qualtrics.configuration
+    end
+
+    def formatted_time(time)
+      time.utc.in_time_zone(QUALTRICS_POST_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S")
     end
   end
 end

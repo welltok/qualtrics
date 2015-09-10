@@ -38,6 +38,22 @@ module Qualtrics
       end
     end
 
+    def retrieve_all_raw_responses(start_date, end_date)
+      response = get('getLegacyResponseData', {
+        'SurveyID' => id,
+        'StartDate' => formatted_time(start_date),
+        'EndDate' => formatted_time(end_date),
+        'Format' => 'CSV',
+        'ExportTags' => 1
+      })
+
+      if response.status == 200
+        response.result
+      else
+        false
+      end
+    end
+
     def self.attribute_map
       {
         'responses' => :responses,

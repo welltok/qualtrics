@@ -11,7 +11,7 @@ describe Qualtrics::Mailer, :vcr do
   end
 
   it 'has a default send date' do
-    send_date = Time.now.utc.in_time_zone(Qualtrics::Mailer::QUALTRICS_POST_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S")
+    send_date = Time.now.utc.in_time_zone(Qualtrics::Entity::QUALTRICS_POST_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S")
     mailer = Qualtrics::Mailer.new({})
     expect(mailer.send_date).to eq(send_date)
   end

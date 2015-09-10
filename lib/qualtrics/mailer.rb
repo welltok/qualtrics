@@ -12,8 +12,6 @@ module Qualtrics
     validates :from_name, presence: true
     validates :subject, presence: true
 
-    QUALTRICS_POST_TIMEZONE = 'Mountain Time (US & Canada)'
-
     def initialize(options={})
       @send_date = options[:send_date] || post_time
       @from_email = options[:from_email]
@@ -92,12 +90,9 @@ module Qualtrics
     end
 
     private
-    def post_time
-      formatted_time Time.now.utc.in_time_zone(QUALTRICS_POST_TIMEZONE)
-    end
 
-    def formatted_time(time)
-      time.strftime("%Y-%m-%d %H:%M:%S")
+    def post_time
+      formatted_time Time.now
     end
 
     def create_distribution(response, survey_id, message_id)
