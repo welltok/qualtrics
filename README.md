@@ -81,3 +81,18 @@ Retrieve submission results if you know the Qualtrics response_qid
 3. Make your feature addition or bug fix.
 4. Send me a pull request.
 
+### Running the test suite
+
+To run the test suite, you will need to configure a `.env` file, following the
+example of the `.env.example` file:
+
+    cp .env.example .env
+
+You will need to set the `QUALTRICS_USER` variable to your Qualtrics User ID
+value, the `QUALTRICS_TOKEN` variable needs to be set to the API Token value
+associated with your User ID, and the `QUALTRICS_LIBRARY_ID` needs to be set
+to the ID of the survey Library you wish to access.
+
+Now you can run the tests with:
+
+    rake
