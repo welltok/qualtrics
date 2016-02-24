@@ -26,6 +26,14 @@ describe Qualtrics::Survey, :vcr => true  do
     expect(survey.survey_status).to eq(survey_status)
   end
 
+  it 'returns the correct survey status' do
+    survey_status = '1'
+    survey = Qualtrics::Survey.new({
+      survey_status: survey_status
+    })
+    expect(survey.status).to eq('Active')
+  end
+
   it 'has a survey owner id and creator id' do
     survey_owner_id = 'something'
     creator_id = 'something else'
@@ -85,7 +93,7 @@ describe Qualtrics::Survey, :vcr => true  do
   context 'creating to qualtrics' do
 
     let(:survey_import) do
-      survey_import = Qualtrics::SurveyImport.new({
+      Qualtrics::SurveyImport.new({
         survey_name: 'Complex survey',
         survey_data_location: 'spec/fixtures/sample_survey.xml'
       })
@@ -110,6 +118,14 @@ describe Qualtrics::Survey, :vcr => true  do
       survey_import.save
 
       expect(Qualtrics::Survey.all.map{|p| p.id}).to include(survey.id)
+      survey.destroy
+    end
+
+    it 'retrieves the correct survey providing the id' do
+      survey_import.save
+
+      expect(Qualtrics::Survey.find(survey.id).survey_name).to eql(survey.survey_name)
+
       survey.destroy
     end
 

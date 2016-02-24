@@ -1,4 +1,5 @@
 require 'active_model'
+
 module Qualtrics
   class Entity
     include ActiveModel::Model

@@ -56,6 +56,7 @@ describe Qualtrics::Response, :vcr do
         builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |m|
           m.get('/csv_response') { |env| [ 200, {'Content-Type'=>'application/vnd.msexcel'}, 'csv,stuff' ]}
           m.get('/json_response') { |env| [ 200, {'Content-Type'=>'application/json'}, '{"Meta":{"Status":"Fubar","Debug":""}, "Result":{"Works":"Working"}}' ]}
+          m.get('/xml_response') { |env| [ 200, {'Content-Type'=>'text/xml'}, '<Response><Testing>Testing Again</Testing></Response>' ]}
           m.get('/random_content') { |env| [ 200, {'Content-Type'=>'random stuff'}, 'not a real body' ]}
         end
       end
@@ -73,6 +74,11 @@ describe Qualtrics::Response, :vcr do
       expect(response.result).to eql ({'Works' => 'Working'})
     end
 
+    it 'can parse xml' do
+      raw_response = content_endpoints.get('/xml_response')
+      response = Qualtrics::Response.new(raw_response)
+      expect(response.result).to eql ({"Response"=>{"Testing"=>"Testing Again"}})
+    end
     it 'raises an error for other content types' do
       raw_response = content_endpoints.get('/random_content')
       response = Qualtrics::Response.new(raw_response)

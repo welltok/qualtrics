@@ -108,4 +108,58 @@ http_interactions:
       string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"PanelID":"ML_6g1UkJZsO4R4ADj","Count":1,"IgnoredCount":0,"Recipients":{"MLRP_1UrTX25ifbWyrop":"example@example.com"}}}'
     http_version: 
   recorded_at: Thu, 26 Feb 2015 16:56:53 GMT
-recorded_with: VCR 2.9.2
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?ColumnHeaders=1&Email=3&EmbeddedData=4&ExternalData=5&FirstName=1&Format=JSON&Language=7&LastName=2&LibraryID=&Request=importPanel&Token=<QUALTRICS_TOKEN>&Unsubscribed=6&User=<QUALTRICS_USER>&Version=2.3
+    body:
+      encoding: UTF-8
+      string: |
+        "FirstName","LastName","Email","EmbeddedData","ExternalData","Unsubscribed","Language"
+        "John","Smith","example@example.com","","","",""
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Apache
+      Status:
+      - '400'
+      Requeststatus:
+      - Failure
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 21 Feb 2026 16:31:31 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w8
+      Content-Length:
+      - '210'
+      Content-Type:
+      - application/json
+      X-Edgeconnect-Midmile-Rtt:
+      - '26'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '483'
+      Date:
+      - Wed, 24 Feb 2016 16:31:31 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Error","RequestType":"importPanel","ErrorCode":400,"QualtricsErrorCode":"ESRV35|LibraryID","ErrorMessage":"Invalid
+        request. Missing or invalid parameter LibraryID.","Debug":""},"Result":null}'
+    http_version: 
+  recorded_at: Wed, 24 Feb 2016 16:31:31 GMT
+recorded_with: VCR 3.0.1

@@ -1,8 +1,10 @@
 require 'json'
 require 'csv'
+require 'nokogiri'
+require 'active_support/core_ext/hash/conversions'
 
 module Qualtrics
-	class Response
+  class Response
 
     def initialize(raw_response)
       @raw_response = raw_response
@@ -12,12 +14,31 @@ module Qualtrics
     end
 
     def success?
-      body['Meta'].nil? ? false : body['Meta']['Status'] == 'Success'
+      case format
+      when 'XML'
+        !body.nil?
+      else
+        body['Meta'].nil? ? false : body['Meta']['Status'] == 'Success'
+      end
+    end
+
+    def format
+      case content_type
+      when 'application/vnd.msexcel'
+        'CSV'
+      when 'application/json'
+        'JSON'
+      when 'text/xml'
+        'XML'
+      end
     end
 
     def result
-      if content_type == 'application/vnd.msexcel'
+      case content_type
+      when 'application/vnd.msexcel'
         body.nil? ? {} : body
+      when 'text/xml'
+        body.nil? ? '' : body
       else
         body['Result'].nil? ? {} : body['Result']
       end
@@ -37,6 +58,8 @@ module Qualtrics
           @body = JSON.parse(@raw_response.body)
         elsif content_type == 'application/vnd.msexcel'
           @body = @raw_response.body
+        elsif content_type == 'text/xml'
+          @body = Hash.from_xml(Nokogiri::XML(@raw_response.body).to_xml)
         else
           raise Qualtrics::UnexpectedContentType, content_type
         end

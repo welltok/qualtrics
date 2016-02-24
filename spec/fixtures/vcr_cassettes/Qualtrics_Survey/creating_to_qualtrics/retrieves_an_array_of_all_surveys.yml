@@ -178,4 +178,63 @@ http_interactions:
       string: '{"Meta":{"Status":"Success","Debug":""},"Result":null}'
     http_version: 
   recorded_at: Thu, 26 Feb 2015 16:46:38 GMT
-recorded_with: VCR 2.9.2
+- request:
+    method: get
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?Format=JSON&LibraryID=&Request=getSurveys&Token=<QUALTRICS_TOKEN>&User=<QUALTRICS_USER>&Version=2.3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 21 Feb 2026 16:31:36 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w17
+      Content-Length:
+      - '1833'
+      Content-Type:
+      - application/json
+      X-Edgeconnect-Midmile-Rtt:
+      - '27'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '340'
+      Date:
+      - Wed, 24 Feb 2016 16:31:36 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"Surveys":[{"SurveyType":"SV","SurveyID":"SV_09uJcIOZmLPQ3I1","SurveyName":"Testing
+        create survey","SurveyOwnerID":"UR_6mMOll6VM5c3mex","SurveyStatus":"Inactive","SurveyStartDate":"0000-00-00
+        00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2016-02-22
+        13:24:31","CreatorID":"UR_6mMOll6VM5c3mex","LastModified":"2016-02-22 13:24:31","LastActivated":"0000-00-00
+        00:00:00","UserFirstName":"Rakhee","UserLastName":"Jairamani"},{"responses":"1","SurveyType":"SV","SurveyID":"SV_ahfb9EWDDt5Wpg1","SurveyName":"Testing
+        surveys","SurveyOwnerID":"UR_6mMOll6VM5c3mex","SurveyStatus":"Inactive","SurveyStartDate":"0000-00-00
+        00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2016-02-22
+        08:01:19","CreatorID":"UR_6mMOll6VM5c3mex","LastModified":"2016-02-22 08:41:02","LastActivated":"0000-00-00
+        00:00:00","UserFirstName":"Rakhee","UserLastName":"Jairamani"},{"responses":"2","SurveyType":"SV","SurveyID":"SV_b7PrNTL7jK7oS1v","SurveyName":"Welltok_Test_Short_v1","SurveyOwnerID":"UR_6mMOll6VM5c3mex","SurveyStatus":"Active","SurveyStartDate":"0000-00-00
+        00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2016-02-04
+        22:04:14","CreatorID":"UR_6mMOll6VM5c3mex","LastModified":"2016-02-17 13:12:33","LastActivated":"2016-02-04
+        22:24:39","UserFirstName":"Rakhee","UserLastName":"Jairamani"},{"SurveyType":"SV","SurveyID":"SV_e4mtW5kKTd1MTAx","SurveyName":"Testing","SurveyOwnerID":"UR_6mMOll6VM5c3mex","SurveyStatus":"Inactive","SurveyStartDate":"0000-00-00
+        00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2016-02-22
+        08:43:09","CreatorID":"UR_6mMOll6VM5c3mex","LastModified":"2016-02-22 08:43:10","LastActivated":"0000-00-00
+        00:00:00","UserFirstName":"Rakhee","UserLastName":"Jairamani"}]}}'
+    http_version: 
+  recorded_at: Wed, 24 Feb 2016 16:31:36 GMT
+recorded_with: VCR 3.0.1

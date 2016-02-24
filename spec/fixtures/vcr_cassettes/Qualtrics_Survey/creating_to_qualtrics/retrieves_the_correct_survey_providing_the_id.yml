@@ -1,0 +1,152 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Data=%23%3CUploadIO%3A0x007f938b12c660%3E&Format=JSON&Name=Complex+survey&Request=importSurvey&Token=<QUALTRICS_TOKEN>&User=rakhee.jairamani%40welltok.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 21 Feb 2026 16:08:39 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w11
+      Content-Length:
+      - '83'
+      Content-Type:
+      - application/json
+      X-Edgeconnect-Midmile-Rtt:
+      - '27'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '773'
+      Date:
+      - Wed, 24 Feb 2016 16:08:39 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"SurveyID":"SV_3Xd0wPOVQziQC8Z"}}'
+    http_version: 
+  recorded_at: Wed, 24 Feb 2016 16:08:40 GMT
+- request:
+    method: get
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php?Format=JSON&Request=getSurvey&SurveyID=SV_3Xd0wPOVQziQC8Z&Token=<QUALTRICS_TOKEN>&User=<QUALTRICS_USER>&Version=2.3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - ", max-age=315360000"
+      Pragma:
+      - ''
+      Content-Disposition:
+      - attachment; filename="Complex_survey.xml"
+      Content-Transfer-Encoding:
+      - binary
+      Requeststatus:
+      - Success
+      Expires:
+      - Sat, 21 Feb 2026 16:08:40 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w295
+      Content-Length:
+      - '615'
+      Content-Type:
+      - text/xml
+      X-Edgeconnect-Midmile-Rtt:
+      - '27'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '801'
+      Date:
+      - Wed, 24 Feb 2016 16:08:40 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <SurveyDefinition><SurveyName>Complex survey</SurveyName><OwnerID>UR_6mMOll6VM5c3mex</OwnerID><isActive>0</isActive><CreationDate>2016-02-24 09:08:39</CreationDate><LastModifiedDate>2016-02-24 09:08:39</LastModifiedDate><StartDate>0000-00-00 00:00:00</StartDate><ExpirationDate>0000-00-00 00:00:00</ExpirationDate><Languages><Language Default="1">EN</Language></Languages><Questions/><Blocks><Block Description="Default Question Block" ID="BL_1ZFnAEeaJ0VRJeB"/></Blocks><SurveyFlow><Block FlowID="FL_2" ID="BL_1ZFnAEeaJ0VRJeB"/></SurveyFlow><EmbeddedData/></SurveyDefinition>
+    http_version: 
+  recorded_at: Wed, 24 Feb 2016 16:08:41 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Format=JSON&Request=deleteSurvey&SurveyID=SV_3Xd0wPOVQziQC8Z&Token=<QUALTRICS_TOKEN>&User=rakhee.jairamani%40welltok.com&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - max-age=315360000
+      Expires:
+      - Sat, 21 Feb 2026 16:08:41 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Servershortname:
+      - w17
+      Content-Length:
+      - '54'
+      Content-Type:
+      - application/json
+      X-Edgeconnect-Midmile-Rtt:
+      - '27'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '876'
+      Date:
+      - Wed, 24 Feb 2016 16:08:42 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":null}'
+    http_version: 
+  recorded_at: Wed, 24 Feb 2016 16:08:42 GMT
+recorded_with: VCR 3.0.1
