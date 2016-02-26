@@ -136,6 +136,16 @@ describe Qualtrics::Survey, :vcr => true  do
       expect(survey.deactivate).to be true
       survey.destroy
     end
+
+    it 'returns the survey status Active/Inactive' do
+      survey_import.save
+
+      expect(survey.activate).to be true
+      expect(survey.deactivate).to be true
+      expect(survey.status).to be 'Inactive'
+      survey.destroy
+    end
+
   end
 
 end
