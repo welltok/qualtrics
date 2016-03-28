@@ -10,6 +10,8 @@ require "qualtrics/panel"
 require "qualtrics/panel_import"
 require "qualtrics/survey"
 require "qualtrics/survey_import"
+require "qualtrics/division"
+require "qualtrics/division_user"
 
 require "qualtrics/message"
 require "qualtrics/distribution"

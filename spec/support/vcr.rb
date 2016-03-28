@@ -7,5 +7,6 @@ VCR.configure do |c|
   c.filter_sensitive_data('<QUALTRICS_USER>') { ENV['QUALTRICS_USER'] }
   c.filter_sensitive_data('<QUALTRICS_TOKEN>') { ENV['QUALTRICS_TOKEN'] }
   c.filter_sensitive_data('<QUALTRICS_LIBRARY_ID>') { ENV['QUALTRICS_LIBRARY_ID'] }
+  c.filter_sensitive_data('<QUALTRICS_ORGANIZATION>') { ENV['QUALTRICS_ORGANIZATION'] }
   c.default_cassette_options = { record: :new_episodes, decode_compressed_response: true }
 end

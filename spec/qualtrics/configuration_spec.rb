@@ -50,4 +50,12 @@ describe Qualtrics::Configuration do
     end
     expect(configuration.default_library_id).to eql(library_id)
   end
+
+  it 'has a organization' do
+    organization = 'brand'
+    configuration = Qualtrics::Configuration.new do |config|
+      config.organization = organization
+    end
+    expect(configuration.organization).to eq(organization)
+  end
 end

@@ -1,6 +1,6 @@
 module Qualtrics
   class Configuration
-    attr_accessor :version, :user, :token, :library_id, :endpoint, :default_library_id
+    attr_accessor :version, :user, :token, :library_id, :endpoint, :default_library_id, :organization
     DEFAULT_VERSION = '2.3'
     DEFAULT_ENDPOINT = 'https://co1.qualtrics.com/WRAPI/ControlPanel/api.php'
 
