@@ -61,12 +61,12 @@ module Qualtrics
       end
     end
 
-    def retrieve_all_raw_responses(start_date, end_date)
+    def retrieve_all_raw_responses(start_date, end_date, format = 'CSV')
       response = get('getLegacyResponseData', {
         'SurveyID' => id,
         'StartDate' => formatted_time(start_date),
         'EndDate' => formatted_time(end_date),
-        'Format' => 'CSV',
+        'Format' => format,
         'ExportTags' => 1
       })
 

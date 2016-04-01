@@ -37,6 +37,8 @@ module Qualtrics
       case content_type
       when 'application/vnd.msexcel'
         body.nil? ? {} : body
+      when 'application/json'
+        body.nil? ? {} : body
       when 'text/xml'
         body.nil? ? '' : body
       else
