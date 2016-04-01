@@ -67,7 +67,7 @@ module Qualtrics
         'StartDate' => formatted_time(start_date),
         'EndDate' => formatted_time(end_date),
         'Format' => format,
-        'ExportTags' => 1
+        'ExportQuestionIDs' => 1
       })
 
       if response.status == 200
