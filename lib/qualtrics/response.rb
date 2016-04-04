@@ -38,7 +38,7 @@ module Qualtrics
       when 'application/vnd.msexcel'
         body.nil? ? {} : body
       when 'application/json'
-        body.nil? ? {} : body
+        body['Result'].nil? ? (body.nil? ? {} : body) : body['Result']
       when 'text/xml'
         body.nil? ? '' : body
       else
