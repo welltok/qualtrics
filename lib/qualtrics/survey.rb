@@ -61,14 +61,16 @@ module Qualtrics
       end
     end
 
-    def retrieve_all_raw_responses(start_date, end_date, format = 'CSV')
-      response = get('getLegacyResponseData', {
+    def retrieve_all_raw_responses(start_date, end_date, format = 'CSV', options = {})
+      data = {
         'SurveyID' => id,
         'StartDate' => formatted_time(start_date),
         'EndDate' => formatted_time(end_date),
         'Format' => format,
         'ExportQuestionIDs' => 1
-      })
+      }.merge(options)
+
+      response = get('getLegacyResponseData', data)
 
       if response.status == 200
         response.result
