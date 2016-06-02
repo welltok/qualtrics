@@ -9,7 +9,7 @@ module Qualtrics
                   :survey_expiration_date, :survey_creation_date,
                   :creator_id, :last_modified, :last_activated,
                   :user_first_name, :user_last_name, :status,
-                  :questions
+                  :questions, :embedded_data
 
     def initialize(options={})
       @responses = options[:responses]
@@ -26,6 +26,7 @@ module Qualtrics
       @user_first_name = options[:user_first_name]
       @user_last_name = options[:user_last_name]
       @questions = options[:questions]
+      @embedded_data = options[:embedded_data]
     end
 
     def status
@@ -100,7 +101,8 @@ module Qualtrics
         'LastActivated' => :last_activated,
         'UserFirstName' => :user_first_name,
         'UserLastName' => :user_last_name,
-        'Questions' => :questions
+        'Questions' => :questions,
+        'EmbeddedData' => :embedded_data 
       }
     end
 
