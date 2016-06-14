@@ -102,7 +102,7 @@ module Qualtrics
         'UserFirstName' => :user_first_name,
         'UserLastName' => :user_last_name,
         'Questions' => :questions,
-        'EmbeddedData' => :embedded_data 
+        'EmbeddedData' => :embedded_data
       }
     end
 
@@ -140,6 +140,12 @@ module Qualtrics
       else
         nil
       end
+    end
+
+    def to_hash
+      hash = {}
+      instance_variables.each {|var| hash[var.to_s.delete("@")] = instance_variable_get(var) }
+      hash
     end
   end
 end
