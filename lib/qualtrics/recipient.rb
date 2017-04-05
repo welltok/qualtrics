@@ -40,10 +40,12 @@ module Qualtrics
 
     def save
       return false if !valid?
+      Qualtrics.configuration.logger.info("addRecipient attributes #{attributes}")
       response = post('addRecipient', attributes)
 
       if response.success?
         self.id = response.result['RecipientID']
+        Qualtrics.configuration.logger.info("addRecipient response #{response.result}")
         true
       else
         false
