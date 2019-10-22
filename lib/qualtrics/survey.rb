@@ -41,6 +41,26 @@ module Qualtrics
     end
 
     def self.all(options={library_id: nil})
+      if Qualtrics.configuration.migrated_to_version_3?
+        all_v3(options)
+      else
+        all_v2(options)
+      end
+    end
+
+    def self.all_v3(options={library_id: nil})
+      # lib_id = options[:library_id] || configuration.default_library_id
+      response = get('/API/v3/surveys')
+      if response.success?
+        response.result['elements'].map do |survey|
+          new(underscore_attributes(survey))
+        end
+      else
+        []
+      end
+    end
+
+    def self.all_v2(options={library_id: nil})
       lib_id = options[:library_id] || configuration.default_library_id
       response = get('getSurveys', {'LibraryID' => lib_id})
       if response.success?
@@ -81,29 +101,55 @@ module Qualtrics
     end
 
     def self.attribute_map
-      {
-        'responses' => :responses,
-        'SurveyID' => :id,
-        'SurveyName' => :survey_name,
-        'SurveyOwnerID' => :survey_owner_id,
-        'OwnerID' => :owner_id,
-        'SurveyStatus' => :survey_status,
-        'isActive' => :is_active,
-        'SurveyStartDate' => :survey_start_date,
-        'StartDate' => :start_date,
-        'SurveyExpirationDate' => :survey_expiration_date,
-        'ExpirationDate' => :expiration_date,
-        'SurveyCreationDate' => :survey_creation_date,
-        'CreationDate' => :creation_date,
-        'CreatorID' => :creator_id,
-        'LastModified' => :last_modified,
-        'LastModifiedDate' => :last_modified_date,
-        'LastActivated' => :last_activated,
-        'UserFirstName' => :user_first_name,
-        'UserLastName' => :user_last_name,
-        'Questions' => :questions,
-        'EmbeddedData' => :embedded_data
-      }
+      if Qualtrics.configuration.migrated_to_version_3?
+        {
+          'responses' => :responses,
+          'id' => :id,
+          'name' => :survey_name,
+          'ownerID' => :owner_id,
+          'lastModified' => :last_modified,
+          'creationDate' => :creation_date,
+          'isActive' => :is_active,
+          'questions' => :questions
+          # 'SurveyOwnerID' => :survey_owner_id,
+          # 'SurveyStatus' => :survey_status,
+          # 'SurveyStartDate' => :survey_start_date,
+          # 'StartDate' => :start_date,
+          # 'SurveyExpirationDate' => :survey_expiration_date,
+          # 'ExpirationDate' => :expiration_date,
+          # 'SurveyCreationDate' => :survey_creation_date,
+          # 'CreatorID' => :creator_id,
+          # 'LastModifiedDate' => :last_modified_date,
+          # 'LastActivated' => :last_activated,
+          # 'UserFirstName' => :user_first_name,
+          # 'UserLastName' => :user_last_name,
+          # 'EmbeddedData' => :embedded_data
+        }
+      else
+        {
+          'responses' => :responses,
+          'SurveyID' => :id,
+          'SurveyName' => :survey_name,
+          'SurveyOwnerID' => :survey_owner_id,
+          'OwnerID' => :owner_id,
+          'SurveyStatus' => :survey_status,
+          'isActive' => :is_active,
+          'SurveyStartDate' => :survey_start_date,
+          'StartDate' => :start_date,
+          'SurveyExpirationDate' => :survey_expiration_date,
+          'ExpirationDate' => :expiration_date,
+          'SurveyCreationDate' => :survey_creation_date,
+          'CreationDate' => :creation_date,
+          'CreatorID' => :creator_id,
+          'LastModified' => :last_modified,
+          'LastModifiedDate' => :last_modified_date,
+          'LastActivated' => :last_activated,
+          'UserFirstName' => :user_first_name,
+          'UserLastName' => :user_last_name,
+          'Questions' => :questions,
+          'EmbeddedData' => :embedded_data
+        }
+      end
     end
 
     def destroy

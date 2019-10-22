@@ -3,6 +3,7 @@ require 'configatron'
 require "qualtrics/configuration"
 require "qualtrics/version"
 require "qualtrics/operation"
+require "qualtrics/operation_v3"
 require "qualtrics/response"
 require "qualtrics/entity"
 require "qualtrics/recipient"

@@ -1,4 +1,5 @@
 require 'active_model'
+require "qualtrics/operation_v3"
 
 module Qualtrics
   class Entity
@@ -44,11 +45,19 @@ module Qualtrics
     end
 
     def self.post(request, options = {}, body_override = nil)
-      Qualtrics::Operation.new(:post, request, options, body_override).issue_request
+      if configuration.migrated_to_version_3?
+        Qualtrics::OperationV3.new(:post, request, options, body_override).issue_request
+      else
+        Qualtrics::Operation.new(:post, request, options, body_override).issue_request
+      end
     end
 
     def self.get(request, options = {})
-      Qualtrics::Operation.new(:get, request, options).issue_request
+      if configuration.migrated_to_version_3?
+        Qualtrics::OperationV3.new(:get, request, options).issue_request
+      else
+        Qualtrics::Operation.new(:get, request, options).issue_request
+      end
     end
 
     def self.configuration

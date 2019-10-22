@@ -6,6 +6,7 @@ require 'active_support/core_ext/hash/conversions'
 module Qualtrics
   class Response
 
+    SUCCESS_STATUSES = %w(200)
     def initialize(raw_response)
       @raw_response = raw_response
       if status != 200
@@ -14,6 +15,18 @@ module Qualtrics
     end
 
     def success?
+      if Qualtrics.configuration.migrated_to_version_3?
+        v3_success?
+      else
+        v2_success?
+      end
+    end
+
+    def v3_success?
+      body['meta'].present? && SUCCESS_STATUSES.any? { |status| body['meta']['httpStatus'].match(status) }
+    end
+
+    def v2_success?
       case format
       when 'XML'
         !body.nil?
@@ -38,7 +51,7 @@ module Qualtrics
       when 'application/vnd.msexcel'
         body.nil? ? {} : body
       when 'application/json'
-        body['Result'].nil? ? (body.nil? ? {} : body) : body['Result']
+        json_result
       when 'text/xml'
         body.nil? ? '' : body
       else
@@ -51,6 +64,14 @@ module Qualtrics
     end
 
     protected
+
+    def json_result
+      if Qualtrics.configuration.migrated_to_version_3?
+        body['result'].nil? ? (body.nil? ? {} : body) : body['result']
+      else
+        body['Result'].nil? ? (body.nil? ? {} : body) : body['Result']
+      end
+    end
 
     def body
       if @body.nil?
@@ -83,7 +104,11 @@ module Qualtrics
 
     private
     def error_message
-      body['Meta'].nil? ? 'No error message' : body['Meta']['ErrorMessage']
+      if Qualtrics.configuration.migrated_to_version_3?
+        body['meta'].nil? ? 'No error message' : body.dig('meta', 'error', 'errorMessage')
+      else
+        body['Meta'].nil? ? 'No error message' : body['Meta']['ErrorMessage']
+      end
     end
   end
 end
