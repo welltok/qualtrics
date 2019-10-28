@@ -129,7 +129,7 @@ module Qualtrics
           'creationDate' => :creation_date,
           'isActive' => :is_active,
           'questions' => :questions,
-          'ownerID' => :survey_owner_id,
+          # 'SurveyOwnerID' => :survey_owner_id,
           # 'SurveyStatus' => :survey_status,
           # 'SurveyStartDate' => :survey_start_date,
           # 'StartDate' => :start_date,
