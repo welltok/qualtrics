@@ -1,6 +1,6 @@
 module Qualtrics
   class Recipient < Entity
-    attr_accessor :email, :first_name, :last_name, :language, :external_data, :embedded_data, :unsubscribed, :panel_id, :id
+    attr_accessor :directory_id, :email, :first_name, :last_name, :language, :external_data, :embedded_data, :unsubscribed, :panel_id, :id
     validates :panel_id, presence: true
     # qualtrics_attribute :library_id, 'LibraryID'
 
@@ -21,7 +21,18 @@ module Qualtrics
     end
 
     def attributes
-      {
+      if Qualtrics.configuration.migrated_to_version_3?
+        {
+          'email'            => email,
+          'firstName'        => first_name,
+          'lastName'         => last_name,
+          'externalDataRef'  => external_data,
+          'language'         => language,
+          'embeddedData'     => embedded_data,
+          'unsubscribed'     => unsubscribed
+        }.delete_if {|key, value| value.nil? }
+      else
+        {
           'LibraryID'        => library_id,
           'PanelID'          => panel_id,
           'Email'            => email,
@@ -31,7 +42,8 @@ module Qualtrics
           'Language'         => language,
           'ED'               => embedded_data,
           'Unsubscribed'     => unsubscribed
-      }.delete_if {|key, value| value.nil? }
+        }.delete_if {|key, value| value.nil? }
+      end
     end
 
     def panel=(panel)
@@ -40,6 +52,27 @@ module Qualtrics
 
     def save
       return false if !valid?
+      if Qualtrics.configuration.migrated_to_version_3?
+        save_v3
+      else
+        save_v2
+      end
+    end
+
+    def save_v3
+      Qualtrics.configuration.logger.info("addRecipient attributes #{attributes}")
+      response = post("/API/v3/mailinglists/#{panel_id}/contacts/", attributes)
+
+      if response.success?
+        self.id = response.result['id']
+        Qualtrics.configuration.logger.info("addRecipient response #{response.result}")
+        true
+      else
+        false
+      end
+    end
+
+    def save_v2
       Qualtrics.configuration.logger.info("addRecipient attributes #{attributes}")
       response = post('addRecipient', attributes)
 

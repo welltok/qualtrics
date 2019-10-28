@@ -73,6 +73,24 @@ module Qualtrics
     end
 
     def self.find(id)
+      if Qualtrics.configuration.migrated_to_version_3?
+        find_v3(id)
+      else
+        find_v2(id)
+      end
+    end
+
+    def self.find_v3(id)
+      response = get("/API/v3/surveys/#{id}")
+      if response.success?
+        attributes = underscore_attributes(response.result)
+        new(attributes)
+      else
+        nil
+      end
+    end
+
+    def self.find_v2(id)
       response = get('getSurvey', {'SurveyID' => id})
       if response.success?
         attributes = underscore_attributes(response.result['SurveyDefinition']).merge({id: id})
@@ -110,8 +128,8 @@ module Qualtrics
           'lastModified' => :last_modified,
           'creationDate' => :creation_date,
           'isActive' => :is_active,
-          'questions' => :questions
-          # 'SurveyOwnerID' => :survey_owner_id,
+          'questions' => :questions,
+          'ownerID' => :survey_owner_id,
           # 'SurveyStatus' => :survey_status,
           # 'SurveyStartDate' => :survey_start_date,
           # 'StartDate' => :start_date,
@@ -123,7 +141,7 @@ module Qualtrics
           # 'LastActivated' => :last_activated,
           # 'UserFirstName' => :user_first_name,
           # 'UserLastName' => :user_last_name,
-          # 'EmbeddedData' => :embedded_data
+          'embeddedData' => :embedded_data
         }
       else
         {
