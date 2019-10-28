@@ -1,0 +1,161 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://co1.qualtrics.com/API/v3/surveys
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Api-Token:
+      - BF7DzPBxMQV1BePTl02vE63PWljYrQqeiuK98acb
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Request-Time:
+      - '492'
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Mon, 28 Oct 2019 18:00:03 GMT
+      Content-Length:
+      - '5164'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"result":{"elements":[{"id":"SV_8ufiL2GeL6gNpqt","name":"Health_Summary_3.5_NPF_Survey_Andre","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-06T12:21:34Z","creationDate":"2018-06-28T13:29:14Z","isActive":false},{"id":"SV_0j6nbHn7DUttBwV","name":"KT_Health_Summary_3.5_NPF_Survey
+        - PROD REFERENCE - PLEASE DO NOT EDIT - Copy","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-16T16:41:54Z","creationDate":"2018-08-16T16:41:53Z","isActive":false},{"id":"SV_0Mv4YSbSxGKiYmN","name":"INACTIVE
+        - Health_Summary_3.5_NPF_Survey - PROD REFERENCE - PLEASE DO NOT EDIT 0 responses","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-05-13T17:58:41Z","creationDate":"2018-12-12T14:13:32Z","isActive":true},{"id":"SV_1SxOXJtFPKyAuVf","name":"INACTIVE
+        - PROD REFERENCE 2019/08/20 - Your Health Summary (NPF HA 3.5)","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-08-29T18:10:22Z","creationDate":"2019-08-29T18:10:13Z","isActive":false},{"id":"SV_3JLYaPOJKq7nRL7","name":"Health_Summary_3.5_NPF_Survey
+        - supramo","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-08T15:51:27Z","creationDate":"2018-05-31T22:00:42Z","isActive":true},{"id":"SV_3l3kw4GbdSLtRAx","name":"Health_Summary_prod_reference_6th_august_3.5
+        - DE7633","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-09-04T19:50:16Z","creationDate":"2018-08-06T13:35:14Z","isActive":false},{"id":"SV_4SgrNQICuZtBUq1","name":"HRA
+        3.0 - PROD REFERENCE - August - HNNY_-_2018_-_Health_Assessment_by_HealthFitness","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-03-28T13:08:38Z","creationDate":"2018-08-13T14:20:15Z","isActive":true},{"id":"SV_4Yj5HxJWauI4WXj","name":"Redirect_Survey_Service_Registered_Offline","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-10-18T21:09:33Z","creationDate":"2018-04-09T15:28:20Z","isActive":true},{"id":"SV_51oL6e9AFYPtxWd","name":"Redirect_Survey_Service_Offline","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-04-09T20:35:04Z","creationDate":"2018-04-09T15:28:40Z","isActive":false},{"id":"SV_6DPMajzWj1SGJy5","name":"supramo-short-Health_Summary_3.5","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-06-04T16:05:11Z","creationDate":"2018-04-09T20:03:05Z","isActive":true},{"id":"SV_6fFXFBySqdwVCK1","name":"US10134
+        - Copy of \"ACTIVE - Health_Summary_3.5_NPF_Survey - PROD ''Health Summary''
+        REFERENCE - PLEASE","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-07-12T11:46:10Z","creationDate":"2019-07-10T14:03:21Z","isActive":true},{"id":"SV_80pMom7vCh8fXVj","name":"KT_Survey","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-16T15:10:21Z","creationDate":"2018-08-16T15:10:21Z","isActive":false},{"id":"SV_88ulUCPwpnI8Tgp","name":"Health_Summary_prod_reference_6th_august_3.5
+        - DE6181 copy","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-06T13:30:21Z","creationDate":"2018-08-06T13:10:10Z","isActive":false},{"id":"SV_8dH7uDKhmqH4HA1","name":"Health_Summary_3.5_NPF_Survey
+        - PROD_Nikola_copy","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-06T13:39:34Z","creationDate":"2018-08-06T12:30:51Z","isActive":false},{"id":"SV_9LDMBKoEqD1VWst","name":"Health_Summary_3.5_NPF_Survey
+        - DE7864","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-11-02T22:05:53Z","creationDate":"2018-09-04T19:55:01Z","isActive":true},{"id":"SV_9oE2denmZCyyT1b","name":"KT_survey_2","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-17T18:02:06Z","creationDate":"2018-08-16T16:42:26Z","isActive":true},{"id":"SV_a4ALZn5HI8BK6KF","name":"welltok-bdd-HA-3.5-NPF","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-06-06T12:21:28Z","creationDate":"2019-06-05T15:12:44Z","isActive":true},{"id":"SV_a8WejA4YXQzhhrv","name":"HNNY_2018_3.0_CPF_Survey
+        - welltok/bdd","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-08-01T10:06:48Z","creationDate":"2019-08-01T10:03:35Z","isActive":true},{"id":"SV_b3ZW8pAGivWuVXD","name":"Redirect_Survey_Service","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-04-09T20:57:36Z","creationDate":"2018-04-09T15:28:02Z","isActive":true},{"id":"SV_cFMDEVsmDViJpJj","name":"Health_Summary_prod_reference_6th_august_3.5","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-09-04T19:47:44Z","creationDate":"2018-08-06T11:31:18Z","isActive":true},{"id":"SV_diYTbbqyZAbayoJ","name":"ACTIVE
+        - HNNY_2018_3.0_CPF_Survey - PROD REFERENCE - PLEASE DO NOT EDIT","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-08-09T18:08:13Z","creationDate":"2018-04-09T15:00:13Z","isActive":true},{"id":"SV_do1LxUrnimM60aF","name":"ACTIVE
+        - Health_Summary_3.5_NPF_Survey - PROD ''Health Summary'' REFERENCE - PLEASE
+        DO NOT EDIT","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2019-08-29T18:06:50Z","creationDate":"2018-08-29T18:52:25Z","isActive":true},{"id":"SV_efjj8QQVrVTYk73","name":"test","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-08-06T10:20:54Z","creationDate":"2018-08-06T10:20:54Z","isActive":false},{"id":"SV_eP3EKCPKoHE2wlf","name":"Health_Summary_3.5_NPF_Survey
+        - Copy from June 12th","ownerId":"UR_bO58WasVlDL7m6h","lastModified":"2018-06-12T18:31:48Z","creationDate":"2018-06-12T18:31:47Z","isActive":false}],"nextPage":null},"meta":{"httpStatus":"200
+        - OK","requestId":"86b189ae-3022-4864-aa81-04cbc049e0f8"}}'
+    http_version: 
+  recorded_at: Mon, 28 Oct 2019 18:00:03 GMT
+- request:
+    method: post
+    uri: https://survey.qualtrics.com/WRAPI/ControlPanel/api.php
+    body:
+      encoding: UTF-8
+      string: Data=%23%3CUploadIO%3A0x0000562ad4f731b8%3E&Format=JSON&Name=Complex+survey&Request=importSurvey&Token=&User=&Version=2.3
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      X-Trace-Id:
+      - 2f441f468043a1eb009f26e6d96f27cb
+      Status:
+      - '200'
+      Requeststatus:
+      - Failure
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Content-Length:
+      - '161'
+      X-Cnection:
+      - close
+      Content-Type:
+      - application/json
+      X-Edgeconnect-Midmile-Rtt:
+      - '11'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '177'
+      Date:
+      - Mon, 28 Oct 2019 18:39:56 GMT
+      Connection:
+      - close
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"Meta":{"Status":"Success","Debug":""},"Result":{"SurveyID":"SV_8ufiL2GeL6gNpqt"}}'
+    http_version: 
+  recorded_at: Mon, 28 Oct 2019 18:39:56 GMT
+- request:
+    method: post
+    uri: https://co1.qualtrics.com/WRAPI/ControlPanel/api.php/deleteSurvey
+    body:
+      encoding: UTF-8
+      string: '{"SurveyID":"SV_8ufiL2GeL6gNpqt"}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Api-Token:
+      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      X-Trace-Id:
+      - 3ff5a4b1bec6537d22f1c54f91dae846 (not sampled)
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Mon, 28 Oct 2019 18:41:30 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Content-Length:
+      - '0'
+      X-Cnection:
+      - close
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Mon, 28 Oct 2019 18:41:30 GMT
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 28 Oct 2019 18:41:30 GMT
+recorded_with: VCR 5.0.0

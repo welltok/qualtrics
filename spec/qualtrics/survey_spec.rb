@@ -121,6 +121,17 @@ describe Qualtrics::Survey, :vcr => true  do
       survey.destroy
     end
 
+    it 'retrieves an array of all surveys for V3' do
+      allow(Qualtrics.configuration).to receive(:migrated_to_version_3?).and_return(false)
+
+      survey_import.save
+
+      allow(Qualtrics.configuration).to receive(:migrated_to_version_3?).and_return(true)
+
+      expect(Qualtrics::Survey.all.map{|p| p.id}).to include(survey.id)
+      survey.destroy
+    end
+
     it 'retrieves the correct survey providing the id' do
       survey_import.save
 
@@ -130,10 +141,9 @@ describe Qualtrics::Survey, :vcr => true  do
     end
 
     it 'retrieves the correct survey providing the id for V3' do
-      allow(Qualtrics.configuration).to receive(:migrated_to_version_3?).and_return(true)
-      allow(Qualtrics.configuration).to receive(:token).and_return('BF7DzPBxMQV1BePTl02vE63PWljYrQqeiuK98acb')
-
       survey_import.save
+
+      allow(Qualtrics.configuration).to receive(:migrated_to_version_3?).and_return(true)
 
       expect(Qualtrics::Survey.find(survey.id).survey_name).to eql(survey.survey_name)
 
