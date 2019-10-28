@@ -51,7 +51,7 @@ module Qualtrics
     end
 
     def save
-      return false if !valid?
+      return false unless valid?
       if Qualtrics.configuration.migrated_to_version_3?
         save_v3
       else

@@ -131,6 +131,37 @@ describe Qualtrics::Recipient, :vcr => true  do
     end
   end
 
+  context 'creating to qualtrics in version 3' do
+    before(:each) do
+      allow(Qualtrics.configuration).to receive(:migrated_to_version_3?).and_return(true)
+
+      @recipient = Qualtrics::Recipient.new({
+        last_name: "test_last_name",
+        panel_id: "PI_1234"
+      })
+    end
+
+    it 'persists to qualtrics' do
+      expect(@recipient.save).to be true
+    end
+
+    it 'populates the recipient id when successful' do
+      @recipient.save
+      expect(@recipient.id).to_not be_nil
+    end
+
+    it 'populates the success attribute' do
+      @recipient.save
+      expect(@recipient).to be_success
+    end
+
+    it 'raises an error when a recipient is created without specifying a panel id' do
+      recipient = Qualtrics::Recipient.new
+      expect(recipient.save).to be false
+      expect(recipient.errors[:panel_id]).to_not be_blank
+    end
+  end
+
   context 'recipient made in qualtrics' do
     before(:each) do
       Qualtrics.begin_transaction!
