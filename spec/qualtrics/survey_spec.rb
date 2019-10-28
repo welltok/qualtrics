@@ -129,6 +129,17 @@ describe Qualtrics::Survey, :vcr => true  do
       survey.destroy
     end
 
+    it 'retrieves the correct survey providing the id for V3' do
+      allow(Qualtrics.configuration).to receive(:migrated_to_version_3?).and_return(true)
+      allow(Qualtrics.configuration).to receive(:token).and_return('BF7DzPBxMQV1BePTl02vE63PWljYrQqeiuK98acb')
+
+      survey_import.save
+
+      expect(Qualtrics::Survey.find(survey.id).survey_name).to eql(survey.survey_name)
+
+      survey.destroy
+    end
+
     it 'can be activated or deactivated' do
       survey_import.save
 

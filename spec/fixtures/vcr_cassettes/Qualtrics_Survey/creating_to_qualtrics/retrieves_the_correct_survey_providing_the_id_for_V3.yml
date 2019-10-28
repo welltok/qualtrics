@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://co1.qualtrics.com/WRAPI/ControlPanel/api.php/importSurvey
+    body:
+      encoding: UTF-8
+      string: '{"Name":"Complex survey","Data":"#<UploadIO:0x0000560789838510>"}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      X-Trace-Id:
+      - 3183d35684c248b73170cc82e5e4f20c (not sampled)
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Mon, 28 Oct 2019 17:28:13 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Content-Length:
+      - '0'
+      X-Cnection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 28 Oct 2019 17:28:13 GMT
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 28 Oct 2019 17:28:13 GMT
+- request:
+    method: get
+    uri: https://co1.qualtrics.com/API/v3/surveys/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '159'
+      Date:
+      - Mon, 28 Oct 2019 17:28:13 GMT
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"result":{"id": "SV_do1LxUrnimM60aF", "name": "Complex survey"}, "meta":
+        { "httpStatus": "200 - OK", "requestId": "75643022-a7a8-4620-aeae-e4d12b28ac8e"}}'
+    http_version: 
+  recorded_at: Mon, 28 Oct 2019 17:28:13 GMT
+- request:
+    method: post
+    uri: https://co1.qualtrics.com/WRAPI/ControlPanel/api.php/deleteSurvey
+    body:
+      encoding: UTF-8
+      string: '{"SurveyID":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Api-Token:
+      - BF7DzPBxMQV1BePTl02vE63PWljYrQqeiuK98acb
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      X-Trace-Id:
+      - 2dd3675ceddb220b0ff7ace12d1bf56e (not sampled)
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Mon, 28 Oct 2019 17:41:40 GMT
+      P3p:
+      - CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"
+      Content-Length:
+      - '0'
+      X-Cnection:
+      - close
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Mon, 28 Oct 2019 17:41:41 GMT
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 28 Oct 2019 17:41:41 GMT
+recorded_with: VCR 5.0.0
