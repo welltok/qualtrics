@@ -45,18 +45,18 @@ module Qualtrics
     end
 
     def self.post(request, options = {}, body_override = nil)
-      if configuration.migrated_to_version_3?
-        Qualtrics::OperationV3.new(:post, request, options, body_override).issue_request
-      else
-        Qualtrics::Operation.new(:post, request, options, body_override).issue_request
-      end
+      qualtrics_api_operation.new(:post, request, options, body_override).issue_request
     end
 
     def self.get(request, options = {})
+      qualtrics_api_operation.new(:get, request, options).issue_request
+    end
+
+    def self.qualtrics_api_operation
       if configuration.migrated_to_version_3?
-        Qualtrics::OperationV3.new(:get, request, options).issue_request
+        Qualtrics::OperationV3
       else
-        Qualtrics::Operation.new(:get, request, options).issue_request
+        Qualtrics::Operation
       end
     end
 

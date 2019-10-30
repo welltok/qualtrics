@@ -67,7 +67,7 @@ module Qualtrics
 
     def json_result
       if Qualtrics.configuration.migrated_to_version_3?
-        body['result'].nil? ? (body.nil? ? {} : body) : body['result']
+        body['result'].nil? ? (body || {}) : body['result']
       else
         body['Result'].nil? ? (body.nil? ? {} : body) : body['Result']
       end

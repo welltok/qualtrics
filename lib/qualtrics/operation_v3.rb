@@ -19,19 +19,14 @@ module Qualtrics
     def issue_request
       raise Qualtrics::UnexpectedRequestMethod if !REQUEST_METHOD_WHITELIST.include?(http_method)
 
-      puts "starting call to: #{http_method} #{path}"
       response = connection.public_send(http_method, path, payload) do |req|
-        # req.options.timeout = config.http_timeout # add in timeout option?
         req.headers['Content-Type'] = CONTENT_TYPE_JSON
         req.headers['Accept'] = CONTENT_TYPE_JSON
         req.headers['X-API-TOKEN'] = configuration.token
-        puts "with headers: #{req.headers}"
 
         req.body = payload.to_json if payload.present?
       end
 
-      puts response.status
-      puts response.body
       Qualtrics::Response.new(response)
     end
 

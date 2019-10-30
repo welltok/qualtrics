@@ -30,7 +30,7 @@ module Qualtrics
           'language'         => language,
           'embeddedData'     => embedded_data,
           'unsubscribed'     => unsubscribed
-        }.delete_if {|key, value| value.nil? }
+        }.delete_if {|_, value| value.nil? }
       else
         {
           'LibraryID'        => library_id,
@@ -42,7 +42,7 @@ module Qualtrics
           'Language'         => language,
           'ED'               => embedded_data,
           'Unsubscribed'     => unsubscribed
-        }.delete_if {|key, value| value.nil? }
+        }.delete_if {|_, value| value.nil? }
       end
     end
 

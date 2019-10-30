@@ -18,7 +18,7 @@ module Qualtrics
     end
 
     def migrated_to_version_3?
-      self.version.to_f >= 3
+      version.to_f >= 3
     end
 
     def update(&block)
